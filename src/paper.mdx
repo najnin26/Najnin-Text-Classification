@@ -3,7 +3,7 @@ title: "QDeBERTa-BiLSTM: A Hybrid Quantum Classical Framework for Enhanced Text 
 authors:
   - name: Najnin Sultana Shirin
     url: https://najnin26.github.io/Najnin/
-    institution: Jagannath University, Dhaka, Bangladesh
+    institution: Jagannath University
     notes: ["*", †]
   - name: Author Two
     institution: Institution Two
@@ -257,7 +257,7 @@ The natural language processing field requires sentiment analysis and text class
       entanglement strategy, and controlled operations — allowing a systematic study of how circuit design impacts downstream classification.
     </p>
     <div class="grid grid-cols-2 gap-6 mt-6">
-      <div class="qc bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md">
+      <div class="qc bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md border border-gray-700">
         <span class="qb qb1">QC1</span>
         <div class="qt font-semibold text-blue-400">Entangling Circuit</div>
         <p class="qd text-sm text-gray-300 mt-2">
@@ -269,7 +269,7 @@ The natural language processing field requires sentiment analysis and text class
         </div>
       </div>
 
-      <div class="qc bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md">
+      <div class="qc bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md border border-gray-700">
         <span class="qb qb2">QC2</span>
         <div class="qt font-semibold text-blue-400">Rotation-Based Circuit</div>
         <p class="qd text-sm text-gray-300 mt-2">
@@ -280,7 +280,7 @@ The natural language processing field requires sentiment analysis and text class
         </div>
       </div>
 
-      <div class="qc bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md">
+      <div class="qc bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md border border-gray-700">
         <span class="qb qb3">QC3</span>
         <div class="qt font-semibold text-blue-400">Layered Rotation Circuit</div>
         <p class="qd text-sm text-gray-300 mt-2">
@@ -291,7 +291,7 @@ The natural language processing field requires sentiment analysis and text class
         </div>
       </div>
 
-      <div class="qc bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md">
+      <div class="qc bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md border border-gray-700">
         <span class="qb qb4">QC4</span>
         <div class="qt font-semibold text-blue-400">Controlled Operation Circuit</div>
         <p class="qd text-sm text-gray-300 mt-2">
@@ -429,7 +429,7 @@ The natural language processing field requires sentiment analysis and text class
           <tr><td>Hybrid Fine-Tuned BERT (Masum et al., 2025)</td><td>~95%</td><td>—</td><td>—</td></tr>
           <tr><td>Complex Quantum Kernel Self-Attention (Chen & Lou, 2025)</td><td>~93%</td><td>~80%</td><td>~80%</td></tr>
           <tr><td>Quantum-Inspired DNN (Shi et al., 2021)</td><td>—</td><td>~79%</td><td>~86%</td></tr>
-          <tr><td style="color:var(--ac);font-weight:600">QDeBERTa-BiLSTM (Ours)</td><td class="best">~97%</td><td class="best">~86%</td><td class="best">~86%</td></tr>
+          <tr><td style="color:var(--ac);font-weight:600">QDeBERTa-BiLSTM (Ours)</td><td class="qt font-semibold text-blue-400">~97%</td><td class="qt font-semibold text-blue-400">~86%</td><td class="qt font-semibold text-blue-400">~86%</td></tr>
         </tbody>
       </table>
     </div>
@@ -532,37 +532,30 @@ The natural language processing field requires sentiment analysis and text class
   </div>
 </section>
 
-
 ## Citation
-
-If you copy your bibliography into `./bibliography.bib`, you can cite papers using their BibTeX keys, and they'll be automatically formatted and included in the bibliography section at the end. For example: [@vaswani2017attention]. Note that these citations are distinct from footnotes[^mynote], which show up in a separate section if you use them.
-
-[^mynote]: On the web, they should really be called "endnotes", since each page constitutes a full document.
-
-## Table
-
-Add simple tables using [GitHub Flavored Markdown syntax](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting/organizing-information-with-tables):
-
-| Model | Accuracy | F1 score | Training time (hours) |
-| :--- | :---: | :---: | :---: |
-| BERT-base | 0.89 | 0.87 | 4.5 |
-| RoBERTa-large | 0.92 | 0.91 | 7.2 |
-| DistilBERT | 0.86 | 0.84 | 2.1 |
-| XLNet | 0.90 | 0.89 | 6.8 |
-
-## BibTeX citation
-
-Displaying the BibTeX entry for your paper in a code block makes it easy to copy and paste.
-
+<p>If you find this work useful in your research, please cite:</p>
 ```bibtex
-@misc{roman2024academic,
-  author = "{Roman Hauksson}",
-  title = "Academic Project Page Template",
-  year = "2024",
-  howpublished = "\url{https://research-template.roman.technology}",
+@inproceedings{shirin2026qdeberta,
+  author    = "{Najnin Sultana Shirin and Author Two and Author Three and Author Four}",
+  title     = "QDeBERTa-BiLSTM: A Hybrid Quantum Classical Framework for Enhanced Text Classification",
+  booktitle = "Conference on Language Modeling (COLM)",
+  year      = "2026",
+  note      = "Under double-blind review"
 }
 ```
-
 ## Bibliography
+<div class="bibtext">
+      <p>Li, Y. et al. (2025). QMLSC: A quantum multimodal learning model for sentiment classification. <em>Information Fusion</em>, 120, 103049.</p>
+      <p>Yang, C.-H. H. et al. (2022). When BERT meets quantum temporal convolution learning for text classification. <em>ICASSP 2022</em>, pp. 8602–8606.</p>
+      <p>Kong, X. et al. (2025). Quantum-enhanced LLM efficient fine tuning. <em>arXiv:2503.12790</em>.</p>
+      <p>Kim, S. H. et al. (2025). Quantum large language model fine-tuning. <em>IEEE QCE 2025</em>, vol. 1, pp. 01–12.</p>
+      <p>Masum, A. K. M. et al. (2025). A hybrid classical-quantum fine-tuned BERT for text classification. <em>AAAI Symposium Series</em>, 7, pp. 374–380.</p>
+      <p>Chen, X. &amp; Lou, X. (2025). Enhancing text classification through quantum transfer learning. <em>IEEE Access</em>.</p>
+      <p>Zeguendry, A. et al. (2024). Quantum-enhanced KNN for text classification. <em>Advanced Quantum Technologies</em>, 7(11), 2400122.</p>
+      <p>Shi, J. et al. (2021). Two end-to-end quantum-inspired deep neural networks for text classification. <em>IEEE TKDE</em>, 35(4), 4335–4345.</p>
+      <p>Ardeshir-Larijani, E. &amp; Nasiri Fatmehsari, M. M. (2024). Hybrid classical-quantum transfer learning for text classification. <em>Quantum Machine Intelligence</em>, 6(1), 19.</p>
+    </div>
 
-[^ref]
+    <div style="text-align:center;margin-top:2.5rem">
+      <a class="backtop" href="#top">↑ Back to top</a>
+    </div>
