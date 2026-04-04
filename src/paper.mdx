@@ -70,12 +70,13 @@ import dogsMsillm from "@/assets/dogs-msillm.jpg"
 <HighlightedSection>
 
 ## Abstract
-The natural language processing field requires sentiment analysis and text classification as essential functions, yet deep learning models from the past struggle to handle complex feature interactions with their existing modeling methods. To address this limitation, this paper proposes **QDeBERTa-BiLSTM**, a solution that employs a hybrid quantum-classical framework that integrates DeBERTa-based contextual embeddings, BiLSTM sequence modeling, and variational quantum circuits to enhance feature representation. The suggested model employs quantum circuits to represent nonlinear interactions while maintaining high contextual knowledge via transformer architectures. Multiple experiments are executed on benchmark datasets such as Spam, Movie Reviews (MR), and MPQA. The model outperforms several previous hybrid and classical baselines, achieving 97.13\% accuracy on Spam and around 86\% accuracy on both MR and MPQA. Furthermore, various quantum circuit designs are tested, revealing that circuit design has a major impact on performance. The results highlight the effetiveness of combining classical and quantum techniques for improved text classification.
+The natural language processing field requires sentiment analysis and text classification as essential functions, yet deep learning models from the past struggle to handle complex feature interactions with their existing modeling methods. To address this limitation, this paper proposes **QDeBERTa-BiLSTM**, a solution that employs a hybrid quantum-classical framework that integrates DeBERTa-based contextual embeddings, BiLSTM sequence modeling, and variational quantum circuits to enhance feature representation. The suggested model employs quantum circuits to represent nonlinear interactions while maintaining high contextual knowledge via transformer architectures. Multiple experiments are executed on benchmark datasets such as Spam, Movie Reviews (MR), and MPQA. The model outperforms several previous hybrid and classical baselines, achieving **97.13\%** accuracy on Spam and around **86\%** accuracy on both MR and MPQA. Furthermore, various quantum circuit designs are tested, revealing that circuit design has a major impact on performance. The results highlight the effectiveness of combining classical and quantum techniques for improved text classification.
 </HighlightedSection>
 
-## Visuals
+## System Architecture
 
-### Picture
+{/* ### Picture
+
 
 Use the `Picture` component to display images. If you have a figure in PDF format, you can pass in its path as the `src` prop and it will be converted into a web-friendly image automatically.
 
@@ -96,11 +97,80 @@ Wrap a visual in a `Figure` component to add a caption.
 <Figure>
   <Picture slot="figure" src={dogsDiffc} alt="Photo of two running dogs, lossily compressed using the DiffC algorithm" />
   <Fragment slot="caption">A photo of two dogs running side-by-side in shallow water, lossily compressed using the [DiffC algorithm](https://jeremyiv.github.io/diffc-project-page/).</Fragment>
+</Figure> */}
+
+
+<Figure>
+  <Picture slot="figure" src="../assets/system.pdf" alt="System architecture diagram" />
+  <Fragment slot="caption">System architecture of the proposed QDeBERTa-BiLSTM model combining DeBERTa, BiLSTM, and a variational quantum circuit for enhanced text classification.</Fragment>
 </Figure>
 
-### Comparison slider
+### Pipeline
 
-Use the `Comparison` component to compare two visuals with an interactive slider.
+1. **Input Layer** → Tokenization + embeddings  
+2. **DeBERTa Encoder** → Contextual representation  
+3. **BiLSTM Layer** → Sequential dependency learning  
+4. **Quantum Layer** → Nonlinear feature mapping  
+5. **Output Layer** → Classification 
+---
+## Methodology
+
+### Embedding Representation
+
+$$
+E = E_{token} + E_{abs} + E_{rel}
+$$
+
+### BiLSTM Representation
+
+$$
+h_t = [\overrightarrow{h_t}; \overleftarrow{h_t}]
+$$
+
+### Quantum State Initialization
+
+$$
+|\psi_0\rangle = |0\rangle^{\otimes q}
+$$
+
+### Quantum Transformation
+
+$$
+|\psi(\theta)\rangle = U(\theta)|\psi_1\rangle
+$$
+
+---
+## Quantum Circuit Designs
+
+<figure>
+  <Picture src="../assets/circuits.pdf" alt="Quantum circuit variants (QC1-QC4) explored in this study, including (a) entangling circuit, (b) rotation-based circuit, (c) layered rotation circuit, and (d) controlled operation circuit." />
+</figure>
+
+We explore four circuit types:
+
+- **QC1:** Entangling circuit (best overall)
+- **QC2:** Rotation-only circuit
+- **QC3:** Layered rotation circuit
+- **QC4:** Controlled operation circuit (best for MPQA)
+
+---
+### Experiments and Results
+
+## Experimental Setup
+
+| Quantum Settings | | Training Settings | |
+| --- | --- | --- | --- |
+| **Parameter** | **Value** | **Parameter** | **Value** |
+| Qubits | 2 | Epoch | 10 |
+| Circuit Depth | 2 layers | Batch Size | 32 |
+| Quantum Weight | 0.01 | Max Seq. Length | 128 |
+| Quantum Gates | Hadamard, RX, RY, CNOT, RZ | Learning Rate | $1\times10^{-5}$ |
+| Encoding Method | Angle Encoding |  |  |
+| Entanglement | Yes |  |  |
+| Feature Map | Pauli-Z |  |  |
+| Simulator | Pennylane-Default |  |  |
+
+{/* Use the `Comparison` component to compare two visuals with an interactive slider.
 
 <Comparison client:idle >
   <Picture slot="itemOne" src={dogsDiffc} alt="Photo of two running dogs, lossily compressed using the DiffC algorithm" />
@@ -163,7 +233,7 @@ Use the two columns component to display two columns of content. In this example
 <TwoColumns>
   <YouTubeVideo slot="left" videoId="wjZofJX0v4M" />
   <ModelViewer slot="right" src="/BoxVertexColors.glb" alt="A cube colored with a rainbow gradient" />
-</TwoColumns>
+</TwoColumns> */}
 
 ## $\LaTeX$
 
