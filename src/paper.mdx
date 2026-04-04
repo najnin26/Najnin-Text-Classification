@@ -322,71 +322,73 @@ The natural language processing field requires sentiment analysis and text class
       <table>
   <thead>
     <tr>
-      <th style="border-right:1px solid var(--bd)">Dataset</th>
-      <th style="border-right:1px solid var(--bd)">Model</th>
-      <th style="border-right:1px solid var(--bd)">Accuracy</th>
-      <th style="border-right:1px solid var(--bd)">Precision</th>
-      <th style="border-right:1px solid var(--bd)">Recall</th>
-      <th style="border-right:1px solid var(--bd)">Specificity</th>
-      <th style="border-right:1px solid var(--bd)">F1</th>
-      <th>AUC</th>
+      <th>Dataset</th><th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th>
+      <th>Specificity</th><th>F1</th><th>AUC</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td rowspan="2" style="border-right:1px solid var(--bd); border-bottom:1px solid var(--bd)">Spam</td>
-      <td>DistilBERT</td><td>0.9659</td><td>0.9662</td><td>0.8125</td><td>0.9947</td><td>0.8827</td><td>0.9779</td>
+      <td rowspan="2" style="border-right:1px solid var(--bd)">Spam</td>
+      <td>DistilBERT</td>
+      <td>0.9659</td><td class="best text-blue-400 font-bold">0.9662</td><td>0.8125</td><td class="best text-blue-400 font-bold">0.9947</td><td>0.8827</td><td class="best text-blue-400 font-bold">0.9779</td>
     </tr>
     <tr>
-      <td><strong style="color:var(--ac)">DeBERTa-v3-base</strong></td>
-      <td><strong style="color:var(--ac)">0.9713</strong></td>
+      <td>
+        <span style="color:white;font-weight:600">
+          De<span style="color:var(--ac);font-weight:700">B</span>ERTa-v3-base
+        </span>
+      </td>
+      <td class="best text-blue-400 font-bold">0.9713</td>
       <td>0.9366</td>
-      <td><strong style="color:var(--ac)">0.8526</strong></td>
+      <td class="best text-blue-400 font-bold">0.8526</td>
       <td>0.9906</td>
-      <td><strong style="color:var(--ac)">0.8926</strong></td>
+      <td class="best text-blue-400 font-bold">0.8926</td>
       <td>0.9335</td>
     </tr>
     <tr>
-      <td rowspan="2" style="border-right:1px solid var(--bd); border-bottom:1px solid var(--bd)">MPQA</td>
-      <td>DistilBERT</td><td>0.8553</td><td>0.7238</td><td>0.7380</td><td>0.8979</td><td>0.7308</td><td>0.8906</td>
+      <td rowspan="2" style="border-right:1px solid var(--bd)">MPQA</td>
+      <td>DistilBERT</td>
+      <td>0.8553</td><td>0.7238</td><td>0.7380</td><td>0.8979</td><td>0.7308</td><td>0.8906</td>
     </tr>
     <tr>
-      <td><strong style="color:var(--ac)">DeBERTa-v3-base</strong></td>
-      <td><strong style="color:var(--ac)">0.8629</strong></td>
-      <td><strong style="color:var(--ac)">0.7568</strong></td>
-      <td><strong style="color:var(--ac)">0.7536</strong></td>
-      <td><strong style="color:var(--ac)">0.9055</strong></td>
-      <td><strong style="color:var(--ac)">0.7552</strong></td>
-      <td>0.8953</td>
+      <td>
+        <span style="color:white;font-weight:600">
+          De<span style="color:var(--ac);font-weight:700">B</span>ERTa-v3-base
+        </span>
+      </td>
+      <td class="best text-blue-400 font-bold">0.8629</td>
+      <td class="best text-blue-400 font-bold">0.7568</td>
+      <td class="best text-blue-400 font-bold">0.7536</td>
+      <td class="best text-blue-400 font-bold">0.9055</td>
+      <td class="best text-blue-400 font-bold">0.7552</td>
+      <td class="best text-blue-400 font-bold">0.8953</td>
     </tr>
     <tr>
       <td rowspan="2" style="border-right:1px solid var(--bd)">MR</td>
-      <td>DistilBERT</td><td>0.7698</td><td>0.7749</td><td>0.7596</td><td>0.7800</td><td>0.7672</td><td><strong style="color:var(--ac)">0.8392</strong></td>
+      <td>DistilBERT</td>
+      <td>0.7698</td><td>0.7749</td><td>0.7596</td><td>0.7800</td><td>0.7672</td>
+      <td class="best text-blue-400 font-bold">0.8392</td>
     </tr>
     <tr>
-      <td><strong style="color:var(--ac)">DeBERTa-v3-base</strong></td>
-      <td><strong style="color:var(--ac)">0.7731</strong></td>
-      <td><strong style="color:var(--ac)">0.7812</strong></td>
-      <td>0.7547</td>
-      <td><strong style="color:var(--ac)">0.7912</strong></td>
-      <td>0.7678</td>
+      <td>
+        <span style="color:white;font-weight:600">
+          De<span style="color:var(--ac);font-weight:700">B</span>ERTa-v3-base
+        </span>
+      </td>
+      <td class="best text-blue-400 font-bold">0.7731</td>
+      <td class="best text-blue-400 font-bold">0.7812</td>
+      <td class="best text-blue-400 font-bold">0.7547</td>
+      <td class="best text-blue-400 font-bold">0.7912</td>
+      <td class="best text-blue-400 font-bold">0.7678</td>
       <td>0.8334</td>
     </tr>
   </tbody>
 </table>
-
-<p class="tc">
-  <strong>Table 1:</strong> DistilBERT vs DeBERTa-v3-base under QC1. 
-  <span style="color:var(--ac);font-weight:700">Blue bold</span> = best per dataset per metric.
-</p>
     </div>
     <p class="tc">
       <strong>Table 1:</strong> DistilBERT vs DeBERTa-v3-base under QC1. 
       <span style="color:var(--ac);font-weight:700">Blue bold</span> = best per dataset per metric.
     </p>
-
-    <hr class="div" />
-
     <h3>Circuit comparison (QC1–QC4, DeBERTa-v3-base)</h3>
     <p>
       QC1 leads on Spam and MR; QC4 excels on MPQA due to its controlled-operation structure better modeling fine-grained sentiment dependencies.
@@ -401,39 +403,25 @@ The natural language processing field requires sentiment analysis and text class
         </thead>
         <tbody>
           <tr><td rowspan="4" style="border-right:1px solid var(--bd)">Spam</td>
-            <td>QC1</td><td class="best">0.9666</td><td class="best">0.9664</td><td class="best">0.9668</td><td class="best">0.9668</td><td class="best">0.9665</td><td class="best">0.9886</td></tr>
+            <td class="best text-blue-400 font-bold">QC1</td><td class="best text-blue-400 font-bold">0.9666</td><td class="best text-blue-400 font-bold">0.9664</td><td class="best text-blue-400 font-bold">0.9668</td><td class="best text-blue-400 font-bold">0.9668</td><td class="best text-blue-400 font-bold">0.9665</td><td class="best text-blue-400 font-bold">0.9886</td></tr>
           <tr><td>QC2</td><td>0.9632</td><td>0.9642</td><td>0.9625</td><td>0.9625</td><td>0.9631</td><td>0.9873</td></tr>
           <tr><td>QC3</td><td>0.9532</td><td>0.9530</td><td>0.9536</td><td>0.9536</td><td>0.9532</td><td>0.9863</td></tr>
           <tr><td>QC4</td><td>0.9231</td><td>0.9354</td><td>0.9201</td><td>0.9201</td><td>0.9221</td><td>0.9446</td></tr>
           <tr><td rowspan="4" style="border-right:1px solid var(--bd)">MPQA</td>
-            <td>QC1</td><td>0.8443</td><td>0.8447</td><td>0.8442</td><td>0.8442</td><td>0.8442</td><td class="best">0.8924</td></tr>
+            <td>QC1</td><td>0.8443</td><td>0.8447</td><td>0.8442</td><td>0.8442</td><td>0.8442</td><td class="best text-blue-400 font-bold">0.8924</td></tr>
           <tr><td>QC2</td><td>0.5546</td><td>0.5612</td><td>0.5557</td><td>0.5557</td><td>0.5449</td><td>0.7097</td></tr>
           <tr><td>QC3</td><td>0.5881</td><td>0.6347</td><td>0.5858</td><td>0.5858</td><td>0.5459</td><td>0.6467</td></tr>
-          <tr><td>QC4</td><td class="best">0.8605</td><td class="best">0.8613</td><td class="best">0.8607</td><td class="best">0.8607</td><td class="best">0.8605</td><td>0.8739</td></tr>
+          <tr><td class="best text-blue-400 font-bold">QC4</td><td class="best text-blue-400 font-bold">0.8605</td><td class="best text-blue-400 font-bold">0.8613</td><td class="best text-blue-400 font-bold">0.8607</td><td class="best text-blue-400 font-bold">0.8607</td><td class="best text-blue-400 font-bold">0.8605</td><td>0.8739</td></tr>
           <tr><td rowspan="4" style="border-right:1px solid var(--bd)">MR</td>
-            <td>QC1</td><td class="best">0.8594</td><td class="best">0.8523</td><td class="best">0.8589</td><td class="best">0.8597</td><td class="best">0.8556</td><td class="best">0.9271</td></tr>
+            <td class="best text-blue-400 font-bold">QC1</td><td class="best text-blue-400 font-bold">0.8594</td><td class="best text-blue-400 font-bold">0.8523</td><td class="best text-blue-400 font-bold">0.8589</td><td>0.8597</td><td class="best text-blue-400 font-bold">0.8556</td><td class="best text-blue-400 font-bold">0.9271</td></tr>
           <tr><td>QC2</td><td>0.8486</td><td>0.8483</td><td>0.8377</td><td>0.8588</td><td>0.8430</td><td>0.9177</td></tr>
           <tr><td>QC3</td><td>0.8514</td><td>0.8485</td><td>0.8444</td><td>0.8579</td><td>0.8465</td><td>0.9255</td></tr>
-          <tr><td>QC4</td><td>0.8444</td><td>0.8484</td><td>0.8271</td><td>0.8607</td><td>0.8376</td><td>0.8972</td></tr>
+          <tr><td>QC4</td><td>0.8444</td><td>0.8484</td><td>0.8271</td><td class="best text-blue-400 font-bold">0.8607</td><td>0.8376</td><td>0.8972</td></tr>
         </tbody>
       </table>
     </div>
     <p class="tc"><strong>Table 2:</strong> QDeBERTa-BiLSTM under all four circuit configurations across all datasets.</p>
-
-    <hr class="div" />
-
-    <h3>Training dynamics — loss curves (QC1–QC4, 10 epochs)</h3>
-
-    <figure class="fig">
-      <Picture slot="figure" src="../assets/plt1.pdf" alt="Training loss curves for QC1–QC4 across datasets" />
-      <figcaption>
-        <strong>Figure 3:</strong> Training loss curves over 10 epochs for QC1–QC4 on all three benchmark datasets (Spam, MR, MPQA). QC1 converges smoothest across all datasets (~0.30 loss on MR, ~0.45 on Spam). QC4 takes longer on MPQA but reaches better final performance. QC2 and QC3 show instability on MPQA due to weaker entanglement capacity.
-      </figcaption>
-    </figure>
-
-    <hr class="div" />
-
-    <h3>Comparison with prior quantum models</h3>
+    ### Comparison with prior quantum models
     <div class="tw">
       <table>
         <thead><tr><th>Method</th><th>Spam</th><th>MR</th><th>MPQA</th></tr></thead>
@@ -446,6 +434,101 @@ The natural language processing field requires sentiment analysis and text class
       </table>
     </div>
     <p class="tc"><strong>Table 4:</strong> Accuracy comparison with existing hybrid quantum-classical models.</p>
+  </div>
+    <h3>Training dynamics — loss curves (QC1–QC4, 10 epochs)</h3>
+    <p>QC1 converges smoothest across all datasets (~0.30 loss on MR, ~0.45 on Spam). QC4 takes longer on MPQA but reaches better final performance. QC2 and QC3 show instability on MPQA due to weaker entanglement capacity.</p>
+    <figure class="fig">
+      <Picture slot="figure" src="../assets/plt1.pdf" alt="Training loss curves for QC1–QC4 across datasets" />
+      <figcaption>
+        <strong>Figure 3:</strong> Training loss curves over 10 epochs for QC1–QC4 on all three benchmark datasets (Spam, MR, MPQA). QC1 converges smoothest across all datasets (~0.30 loss on MR, ~0.45 on Spam). QC4 takes longer on MPQA but reaches better final performance. QC2 and QC3 show instability on MPQA due to weaker entanglement capacity.
+      </figcaption>
+    </figure>
+</section>
+<section class="sec" id="setup">
+  <div class="col">
+    <h2>Experimental Setup</h2>
+    <div class="grid grid-cols-2 gap-6">
+      <div class="cfb">
+        <table class=" w-full text-sm text-gray-200">
+          <thead class=" text-white">
+            <tr><th>Quantum Settings</th><th>Value</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Qubits</td><td>2</td></tr>
+            <tr><td>Circuit Depth</td><td>2 layers</td></tr>
+            <tr><td>Quantum Weight</td><td>0.01</td></tr>
+            <tr><td>Gates</td><td>H, RX, RY, RZ, CNOT</td></tr>
+            <tr><td>Encoding</td><td>Angle Encoding</td></tr>
+            <tr><td>Entanglement</td><td>Yes (CNOT)</td></tr>
+            <tr><td>Feature Map</td><td>Pauli-Z</td></tr>
+            <tr><td>Simulator</td><td>PennyLane-Default</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <div class="cfb">
+        <table class="w-full text-sm text-gray-200">
+          <thead class=" text-white">
+            <tr><th>Training Settings</th><th>Value</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Epochs</td><td>10</td></tr>
+            <tr><td>Batch Size</td><td>32</td></tr>
+            <tr><td>Max Seq. Length</td><td>128 tokens</td></tr>
+            <tr><td>Learning Rate</td><td><span>1 × 10⁻⁵</span></td></tr>
+            <tr><td>Backbone</td>
+                <td><span class="text-white font-semibold">De<span>B</span>ERTa-v3-base</span></td></tr>
+            <tr><td>Loss</td><td>Cross-entropy</td></tr>
+            <tr><td>Train / Val Split</td><td>80 / 20</td></tr>
+            <tr><td>Optimizer</td><td>AdamW</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <h3 class="mt-8">Datasets</h3>
+    <div class="tw">
+      <table class=" divide-x divide-gray-800 w-full text-sm text-gray-200">
+        <thead class=" text-white">
+          <tr>
+            <th>Dataset</th><th>Domain</th><th>Size</th><th>Labels</th><th>Source</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><span class="tag tb">Spam</span></td>
+            <td>SMS messages</td>
+            <td>5,574</td>
+            <td>Ham / Spam</td>
+            <td>Masum et al. (2025)</td>
+          </tr>
+          <tr>
+            <td><span class="tag tt">MR</span></td>
+            <td>Movie reviews</td>
+            <td>~10,662</td>
+            <td>Positive / Negative</td>
+            <td>Chen &amp; Lou (2025)</td>
+          </tr>
+          <tr>
+            <td><span class="tag ta">MPQA</span></td>
+            <td>Opinion sentences</td>
+            <td>~10,600</td>
+            <td>Subjectivity / Polarity</td>
+            <td>Chen &amp; Lou (2025)</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tc mt-2 text-sm text-gray-400">
+      <strong>Table 5:</strong> Benchmark datasets used for training and evaluation. 
+      All label distributions were balanced during preprocessing; 80/20 train/validation split with max sequence length 128.
+    </p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="col">
+    <h2>Conclusion</h2>
+    <p>QDeBERTa-BiLSTM demonstrates that integrating variational quantum circuits into a classical transformer-LSTM pipeline yields meaningful gains for text classification. The model achieves <strong>97%</strong> on Spam and <strong>86%</strong> on both MR and MPQA — surpassing all prior hybrid quantum-classical baselines.</p>
+    <p>The circuit design study reveals a clear tradeoff: entangling circuits (QC1) offer stable, consistent performance across all tasks, while controlled-operation circuits (QC4) excel on nuanced sentiment classification (MPQA). Current limitations include reliance on PennyLane simulators, a small qubit count ($q = 2$), and NISQ-era hardware constraints. Future work will target real quantum hardware, more expressive circuit designs, and extended multilingual and domain-specific benchmarks.</p>
   </div>
 </section>
 
