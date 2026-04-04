@@ -80,8 +80,8 @@ import dogsMsillm from "@/assets/dogs-msillm.jpg"
 ## Abstract
 The natural language processing field requires sentiment analysis and text classification as essential functions, yet deep learning models from the past struggle to handle complex feature interactions with their existing modeling methods. To address this limitation, this paper proposes <strong>QDeBERTa-BiLSTM</strong>, a solution that employs a hybrid quantum-classical framework that integrates DeBERTa-based contextual embeddings, BiLSTM sequence modeling, and variational quantum circuits to enhance feature representation. The suggested model employs quantum circuits to represent nonlinear interactions while maintaining high contextual knowledge via transformer architectures. Multiple experiments are executed on benchmark datasets such as Spam, Movie Reviews (MR), and MPQA. The model outperforms several previous hybrid and classical baselines, achieving <strong>97.13\%</strong> accuracy on Spam and around <strong>86\%</strong> accuracy on both MR and MPQA. Furthermore, various quantum circuit designs are tested, revealing that circuit design has a major impact on performance. The results highlight the effectiveness of combining classical and quantum techniques for improved text classification.
 </HighlightedSection>
-### Results at a Glance
 
+### Results at a Glance
 <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
   <div class="bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md text-center border border-gray-700">
     <h3 class="mt-0 text-4xl font-extrabold italic text-blue-400">97.1%</h3>
@@ -133,8 +133,6 @@ The natural language processing field requires sentiment analysis and text class
   </div>
 </div>
 
-
-
 ## System Architecture
 <section id="architecture" class="mb-12">
   <p class="text-gray-300 mb-6">
@@ -185,87 +183,272 @@ The natural language processing field requires sentiment analysis and text class
       <span class="text-sm text-gray-400">FC + Softmax</span>
     </div>
   </div>
+  <figure class="fig">
+  <Picture slot="figure" src="../assets/system.pdf" alt="System architecture diagram" />
+  <figcaption>
+    <strong>Figure 1:</strong> System architecture of QDeBERTa-BiLSTM. Input tokens are embedded using three positional components, 
+    encoded by DeBERTa's disentangled attention, processed by a BiLSTM, quantum-transformed via a variational circuit, 
+    and classified by a FC softmax head.
+  </figcaption>
+</figure>
+<ol class="plist">
+      <li><strong>Input Layer</strong> — Subword tokenization; sequence bounded to 128 tokens with [CLS]/[SEP]</li>
+      <li><strong>DeBERTa Encoder</strong> — Disentangled attention over content and position embeddings for rich contextual representations</li>
+      <li><strong>BiLSTM Layer</strong> — Forward and backward LSTM states concatenated for sequential dependency learning</li>
+      <li><strong>Quantum Layer</strong> — Variational quantum circuit performing nonlinear feature mapping via Hadamard, rotation, and entangling gates</li>
+      <li><strong>Output Layer</strong> — Fully connected layer + softmax; trained with cross-entropy loss</li>
+    </ol>
+</section>
+## Methodology
+<section class="sec" id="methodology">
+  <div class="col">
+    <h4>Embedding Representation</h4>
+    <p>Each token embedding is formed by summing three components — subword, absolute positional, and relative positional:</p>
+    <div class="eq">$$E = E_{token} + E_{abs} + E_{rel}$$</div>
+
+    <h4>DeBERTa — Disentangled Attention</h4>
+    <p>DeBERTa separates content and position information. The attention score between tokens $W_i$ and $W_j$ is computed as:</p>
+    <div class="eq">$$\text{Attention}(W_i, W_j) = \text{Softmax}\!\left(\frac{V_{W_i}^Q\!\left(V_{W_j}^K\right)^{\!T}}{\sqrt{d_k}}\right)V_{W_j}^V$$</div>
+
+    <h4>BiLSTM — Bidirectional Sequence Modeling</h4>
+    <p>The BiLSTM processes sequences in both forward and backward directions, concatenating the hidden states:</p>
+    <div class="eq">$$\overrightarrow{h_t}=\text{LSTM}_f(H_t) \qquad \overleftarrow{h_t}=\text{LSTM}_b(H_t) \qquad h_t=\bigl[\overrightarrow{h_t};\,\overleftarrow{h_t}\bigr]$$</div>
+
+    <h4>Quantum State Initialization</h4>
+    <p>Qubits start in the ground state. Hadamard gates create superposition:</p>
+    <div class="eq">$$|\psi_0\rangle=|0\rangle^{\otimes q} \qquad |\psi_1\rangle=H^{\otimes q}|\psi_0\rangle$$</div>
+
+    <h4>Quantum Transformation &amp; Measurement</h4>
+    <p>Classical features are angle-encoded via parameterized rotations. The variational unitary $U(\theta)$ is optimized jointly with the classical network. Pauli-$Z$ expectation values form the quantum feature vector:</p>
+    <div class="eq">$$|\psi(\theta)\rangle=U(\theta)|\psi_1\rangle \qquad z_i=\langle\psi(\theta)|Z_i|\psi(\theta)\rangle \qquad \mathbf{z}=[z_1,\ldots,z_q]$$</div>
+
+    <h4>Computational Complexity</h4>
+    <div class="tw">
+      <table>
+        <thead>
+          <tr><th>Component</th><th>Complexity</th><th>Notes</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>DeBERTa multi-head attention</td>
+            <td>$O(n^2 \cdot d)$</td>
+            <td>Dominant cost; $n$ = sequence length, $d$ = hidden dimension</td>
+          </tr>
+          <tr>
+            <td>BiLSTM (forward + backward)</td>
+            <td>$O(n \cdot h^2)$</td>
+            <td>Linear in sequence length</td>
+          </tr>
+          <tr>
+            <td>Variational quantum circuit</td>
+            <td>$O(q \cdot L)$</td>
+            <td>Minimal at $q{=}2, L{=}2$</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</section>
+<section class="sec" id="circuits">
+  <div class="col">
+    <h2>Quantum Circuit Designs</h2>
+    <p>
+      Four variational quantum circuit architectures are explored, each exposing different combinations of rotation depth,
+      entanglement strategy, and controlled operations — allowing a systematic study of how circuit design impacts downstream classification.
+    </p>
+    <div class="grid grid-cols-2 gap-6 mt-6">
+      <div class="qc bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md">
+        <span class="qb qb1">QC1</span>
+        <div class="qt font-semibold text-blue-400">Entangling Circuit</div>
+        <p class="qd text-sm text-gray-300 mt-2">
+          Hadamard initialization → RX/RY rotations → CNOT entanglement between adjacent qubits, enabling inter-qubit correlation discovery.
+        </p>
+        <div class="qstar mt-2 text-yellow-400 text-xs">⭐ Best overall — most stable across all datasets</div>
+        <div class="eq bg-gray-900 text-white p-3 rounded-lg text-center mt-3 text-xs">
+          $$U_{C1}(\theta)=\prod_{i=1}^{q-1}\!\text{CNOT}_{i,i+1}\cdot\prod_{i=1}^{q}R_Y(\theta_i^y)R_X(\theta_i^x)$$
+        </div>
+      </div>
+
+      <div class="qc bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md">
+        <span class="qb qb2">QC2</span>
+        <div class="qt font-semibold text-blue-400">Rotation-Based Circuit</div>
+        <p class="qd text-sm text-gray-300 mt-2">
+          Single-qubit RX and RY rotations only — no entangling gates. Each qubit evolves independently, encoding classical features into quantum amplitudes.
+        </p>
+        <div class="eq bg-gray-900 text-white p-3 rounded-lg text-center mt-3 text-xs">
+          $$U_{C2}(\theta)=\prod_{i=1}^{q}R_Y(\theta_i^y)R_X(\theta_i^x)$$
+        </div>
+      </div>
+
+      <div class="qc bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md">
+        <span class="qb qb3">QC3</span>
+        <div class="qt font-semibold text-blue-400">Layered Rotation Circuit</div>
+        <p class="qd text-sm text-gray-300 mt-2">
+          Multiple stacked layers of RX → RY → RZ on every qubit. Greater circuit depth increases expressibility for complex feature transformations.
+        </p>
+        <div class="eq bg-gray-900 text-white p-3 rounded-lg text-center mt-3 text-xs">
+          $$U_{C3}(\theta)=\prod_{l=1}^{L}\prod_{i=1}^{q}R_Z(\theta_{i,l}^z)R_Y(\theta_{i,l}^y)R_X(\theta_{i,l}^x)$$
+        </div>
+      </div>
+
+      <div class="qc bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md">
+        <span class="qb qb4">QC4</span>
+        <div class="qt font-semibold text-blue-400">Controlled Operation Circuit</div>
+        <p class="qd text-sm text-gray-300 mt-2">
+          RX/RY/RZ rotations combined with CNOT-based controlled operations, enhancing inter-qubit information transfer for complex feature modeling.
+        </p>
+        <div class="qstar mt-2 text-yellow-400 text-xs">⭐ Best on MPQA — superior for sentiment-intensive tasks</div>
+        <div class="eq bg-gray-900 text-white p-3 rounded-lg text-center mt-3 text-xs">
+          $$U_{C4}(\theta)=\prod_{i=1}^{q-1}\!\text{CNOT}_{i,i+1}\cdot\prod_{i=1}^{q}R_Z(\theta_i^z)R_Y(\theta_i^y)R_X(\theta_i^x)$$
+        </div>
+      </div>
+    </div>
+  </div>
+  <figure class="fig">
+  <Picture slot="figure" src="../assets/circuits.pdf" alt="System architecture diagram" />
+  <figcaption><strong>Figure 2:</strong> Quantum circuit variants (QC1–QC4). (a) Entangling circuit with CNOT; (b) rotation-only, no entanglement; (c) layered RX/RY/RZ with depth L; (d) controlled operation circuit combining all three rotation axes with CNOT.</figcaption>
+</figure>
+</section>
+<section class="sec" id="results">
+  <div class="col">
+    <h2>Experiments & Results</h2>
+
+    <h3>Backbone comparison (QC1)</h3>
+    <p>
+      DeBERTa-v3-base consistently outperforms DistilBERT, with the largest gap on MPQA — a sentiment-rich dataset where
+      disentangled attention's nuanced understanding provides the greatest advantage.
+    </p>
+    <div class="tw">
+      <table>
+  <thead>
+    <tr>
+      <th style="border-right:1px solid var(--bd)">Dataset</th>
+      <th style="border-right:1px solid var(--bd)">Model</th>
+      <th style="border-right:1px solid var(--bd)">Accuracy</th>
+      <th style="border-right:1px solid var(--bd)">Precision</th>
+      <th style="border-right:1px solid var(--bd)">Recall</th>
+      <th style="border-right:1px solid var(--bd)">Specificity</th>
+      <th style="border-right:1px solid var(--bd)">F1</th>
+      <th>AUC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td rowspan="2" style="border-right:1px solid var(--bd); border-bottom:1px solid var(--bd)">Spam</td>
+      <td>DistilBERT</td><td>0.9659</td><td>0.9662</td><td>0.8125</td><td>0.9947</td><td>0.8827</td><td>0.9779</td>
+    </tr>
+    <tr>
+      <td><strong style="color:var(--ac)">DeBERTa-v3-base</strong></td>
+      <td><strong style="color:var(--ac)">0.9713</strong></td>
+      <td>0.9366</td>
+      <td><strong style="color:var(--ac)">0.8526</strong></td>
+      <td>0.9906</td>
+      <td><strong style="color:var(--ac)">0.8926</strong></td>
+      <td>0.9335</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="border-right:1px solid var(--bd); border-bottom:1px solid var(--bd)">MPQA</td>
+      <td>DistilBERT</td><td>0.8553</td><td>0.7238</td><td>0.7380</td><td>0.8979</td><td>0.7308</td><td>0.8906</td>
+    </tr>
+    <tr>
+      <td><strong style="color:var(--ac)">DeBERTa-v3-base</strong></td>
+      <td><strong style="color:var(--ac)">0.8629</strong></td>
+      <td><strong style="color:var(--ac)">0.7568</strong></td>
+      <td><strong style="color:var(--ac)">0.7536</strong></td>
+      <td><strong style="color:var(--ac)">0.9055</strong></td>
+      <td><strong style="color:var(--ac)">0.7552</strong></td>
+      <td>0.8953</td>
+    </tr>
+    <tr>
+      <td rowspan="2" style="border-right:1px solid var(--bd)">MR</td>
+      <td>DistilBERT</td><td>0.7698</td><td>0.7749</td><td>0.7596</td><td>0.7800</td><td>0.7672</td><td><strong style="color:var(--ac)">0.8392</strong></td>
+    </tr>
+    <tr>
+      <td><strong style="color:var(--ac)">DeBERTa-v3-base</strong></td>
+      <td><strong style="color:var(--ac)">0.7731</strong></td>
+      <td><strong style="color:var(--ac)">0.7812</strong></td>
+      <td>0.7547</td>
+      <td><strong style="color:var(--ac)">0.7912</strong></td>
+      <td>0.7678</td>
+      <td>0.8334</td>
+    </tr>
+  </tbody>
+</table>
+
+<p class="tc">
+  <strong>Table 1:</strong> DistilBERT vs DeBERTa-v3-base under QC1. 
+  <span style="color:var(--ac);font-weight:700">Blue bold</span> = best per dataset per metric.
+</p>
+    </div>
+    <p class="tc">
+      <strong>Table 1:</strong> DistilBERT vs DeBERTa-v3-base under QC1. 
+      <span style="color:var(--ac);font-weight:700">Blue bold</span> = best per dataset per metric.
+    </p>
+
+    <hr class="div" />
+
+    <h3>Circuit comparison (QC1–QC4, DeBERTa-v3-base)</h3>
+    <p>
+      QC1 leads on Spam and MR; QC4 excels on MPQA due to its controlled-operation structure better modeling fine-grained sentiment dependencies.
+    </p>
+    <div class="tw">
+      <table>
+        <thead>
+          <tr>
+            <th>Dataset</th><th>Circuit</th><th>Accuracy</th><th>Precision</th><th>Recall</th>
+            <th>Specificity</th><th>F1</th><th>AUC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td rowspan="4" style="border-right:1px solid var(--bd)">Spam</td>
+            <td>QC1</td><td class="best">0.9666</td><td class="best">0.9664</td><td class="best">0.9668</td><td class="best">0.9668</td><td class="best">0.9665</td><td class="best">0.9886</td></tr>
+          <tr><td>QC2</td><td>0.9632</td><td>0.9642</td><td>0.9625</td><td>0.9625</td><td>0.9631</td><td>0.9873</td></tr>
+          <tr><td>QC3</td><td>0.9532</td><td>0.9530</td><td>0.9536</td><td>0.9536</td><td>0.9532</td><td>0.9863</td></tr>
+          <tr><td>QC4</td><td>0.9231</td><td>0.9354</td><td>0.9201</td><td>0.9201</td><td>0.9221</td><td>0.9446</td></tr>
+          <tr><td rowspan="4" style="border-right:1px solid var(--bd)">MPQA</td>
+            <td>QC1</td><td>0.8443</td><td>0.8447</td><td>0.8442</td><td>0.8442</td><td>0.8442</td><td class="best">0.8924</td></tr>
+          <tr><td>QC2</td><td>0.5546</td><td>0.5612</td><td>0.5557</td><td>0.5557</td><td>0.5449</td><td>0.7097</td></tr>
+          <tr><td>QC3</td><td>0.5881</td><td>0.6347</td><td>0.5858</td><td>0.5858</td><td>0.5459</td><td>0.6467</td></tr>
+          <tr><td>QC4</td><td class="best">0.8605</td><td class="best">0.8613</td><td class="best">0.8607</td><td class="best">0.8607</td><td class="best">0.8605</td><td>0.8739</td></tr>
+          <tr><td rowspan="4" style="border-right:1px solid var(--bd)">MR</td>
+            <td>QC1</td><td class="best">0.8594</td><td class="best">0.8523</td><td class="best">0.8589</td><td class="best">0.8597</td><td class="best">0.8556</td><td class="best">0.9271</td></tr>
+          <tr><td>QC2</td><td>0.8486</td><td>0.8483</td><td>0.8377</td><td>0.8588</td><td>0.8430</td><td>0.9177</td></tr>
+          <tr><td>QC3</td><td>0.8514</td><td>0.8485</td><td>0.8444</td><td>0.8579</td><td>0.8465</td><td>0.9255</td></tr>
+          <tr><td>QC4</td><td>0.8444</td><td>0.8484</td><td>0.8271</td><td>0.8607</td><td>0.8376</td><td>0.8972</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tc"><strong>Table 2:</strong> QDeBERTa-BiLSTM under all four circuit configurations across all datasets.</p>
+
+    <hr class="div" />
+
+    <h3>Training dynamics — loss curves (QC1–QC4, 10 epochs)</h3>
+
+    <figure class="fig">
+      <Picture slot="figure" src="../assets/plt1.pdf" alt="Training loss curves for QC1–QC4 across datasets" />
+      <figcaption>
+        <strong>Figure 3:</strong> Training loss curves over 10 epochs for QC1–QC4 on all three benchmark datasets (Spam, MR, MPQA). QC1 converges smoothest across all datasets (~0.30 loss on MR, ~0.45 on Spam). QC4 takes longer on MPQA but reaches better final performance. QC2 and QC3 show instability on MPQA due to weaker entanglement capacity.
+      </figcaption>
+    </figure>
+
+    <hr class="div" />
+
+    <h3>Comparison with prior quantum models</h3>
+    <div class="tw">
+      <table>
+        <thead><tr><th>Method</th><th>Spam</th><th>MR</th><th>MPQA</th></tr></thead>
+        <tbody>
+          <tr><td>Hybrid Fine-Tuned BERT (Masum et al., 2025)</td><td>~95%</td><td>—</td><td>—</td></tr>
+          <tr><td>Complex Quantum Kernel Self-Attention (Chen & Lou, 2025)</td><td>~93%</td><td>~80%</td><td>~80%</td></tr>
+          <tr><td>Quantum-Inspired DNN (Shi et al., 2021)</td><td>—</td><td>~79%</td><td>~86%</td></tr>
+          <tr><td style="color:var(--ac);font-weight:600">QDeBERTa-BiLSTM (Ours)</td><td class="best">~97%</td><td class="best">~86%</td><td class="best">~86%</td></tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tc"><strong>Table 4:</strong> Accuracy comparison with existing hybrid quantum-classical models.</p>
+  </div>
 </section>
 
-<Figure>
-  <Picture slot="figure" src="../assets/system.pdf" alt="System architecture diagram" />
-  <Fragment slot="caption">System architecture of the proposed QDeBERTa-BiLSTM model combining DeBERTa, BiLSTM, and a variational quantum circuit for enhanced text classification.</Fragment>
-</Figure>
-
-### Pipeline
-
-1. **Input Layer** → Tokenization + embeddings  
-2. **DeBERTa Encoder** → Contextual representation  
-3. **BiLSTM Layer** → Sequential dependency learning  
-4. **Quantum Layer** → Nonlinear feature mapping  
-5. **Output Layer** → Classification 
----
-## Methodology
-
-### Embedding Representation
-
-$$
-E = E_{token} + E_{abs} + E_{rel}
-$$
-
-### BiLSTM Representation
-
-$$
-h_t = [\overrightarrow{h_t}; \overleftarrow{h_t}]
-$$
-
-### Quantum State Initialization
-
-$$
-|\psi_0\rangle = |0\rangle^{\otimes q}
-$$
-
-### Quantum Transformation
-
-$$
-|\psi(\theta)\rangle = U(\theta)|\psi_1\rangle
-$$
-
----
-## Quantum Circuit Designs
-
-<figure>
-  <Picture src="../assets/circuits.pdf" alt="Quantum circuit variants (QC1-QC4) explored in this study, including (a) entangling circuit, (b) rotation-based circuit, (c) layered rotation circuit, and (d) controlled operation circuit." />
-</figure>
-
-We explore four circuit types:
-
-- **QC1:** Entangling circuit (best overall)
-- **QC2:** Rotation-only circuit
-- **QC3:** Layered rotation circuit
-- **QC4:** Controlled operation circuit (best for MPQA)
-
----
-### Experiments and Results
-
-## Experimental Setup
-
-| Quantum Settings | | Training Settings | |
-| --- | --- | --- | --- |
-| **Parameter** | **Value** | **Parameter** | **Value** |
-| Qubits | 2 | Epoch | 10 |
-| Circuit Depth | 2 layers | Batch Size | 32 |
-| Quantum Weight | 0.01 | Max Seq. Length | 128 |
-| Quantum Gates | Hadamard, RX, RY, CNOT, RZ | Learning Rate | $1\times10^{-5}$ |
-| Encoding Method | Angle Encoding |  |  |
-| Entanglement | Yes |  |  |
-| Feature Map | Pauli-Z |  |  |
-| Simulator | Pennylane-Default |  |  |
-
-## Results and Discussion
-
-## $\LaTeX$
-
-You can also add $\LaTeX$ formulas, rendered during the build process using [$\KaTeX$](https://katex.org/) so they're quick to load for visitors of your project page. You can write them inline, like this: $a^2 + b^2 = c^2$. Or, you can write them as a block:
-
-$$
-\int_a^b f(x) dx
-$$
 
 ## Citation
 
