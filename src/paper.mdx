@@ -1,4 +1,4 @@
----
+﻿---
 title: "QDeBERTa-BiLSTM: A Hybrid Quantum Classical Framework for Enhanced Text Classification"
 authors:
   - name: Najnin Sultana Shirin
@@ -65,40 +65,127 @@ import dogsDiffc from "./assets/dogs-diffc.png"
 import dogsTrue from "./assets/dogs-true.png"
 import dogsMsillm from "@/assets/dogs-msillm.jpg"
 
-<Video src={outside} />
-
+{/* <Video src={outside} /> */}
+<nav class="flex justify-center gap-8 mb-8 text-sm font-medium border-b border-gray-700 pb-2">
+  <a href="#abstract" class="text-gray hover:text-blue no-underline">Abstract</a>
+  <a href="#architecture" class="text-gray hover:text-blue no-underline">Architecture</a>
+  <a href="#methodology" class="text-gray hover:text-blue no-underline">Methodology</a>
+  <a href="#circuits" class="text-gray hover:text-blue no-underline">Circuits</a>
+  <a href="#results" class="text-gray hover:text-blue no-underline">Results</a>
+  <a href="#setup" class="text-gray hover:text-blue no-underline">Setup</a>
+  <a href="#citation" class="text-gray hover:text-blue no-underline">Citation</a>
+</nav>
 <HighlightedSection>
 
 ## Abstract
-The natural language processing field requires sentiment analysis and text classification as essential functions, yet deep learning models from the past struggle to handle complex feature interactions with their existing modeling methods. To address this limitation, this paper proposes **QDeBERTa-BiLSTM**, a solution that employs a hybrid quantum-classical framework that integrates DeBERTa-based contextual embeddings, BiLSTM sequence modeling, and variational quantum circuits to enhance feature representation. The suggested model employs quantum circuits to represent nonlinear interactions while maintaining high contextual knowledge via transformer architectures. Multiple experiments are executed on benchmark datasets such as Spam, Movie Reviews (MR), and MPQA. The model outperforms several previous hybrid and classical baselines, achieving **97.13\%** accuracy on Spam and around **86\%** accuracy on both MR and MPQA. Furthermore, various quantum circuit designs are tested, revealing that circuit design has a major impact on performance. The results highlight the effectiveness of combining classical and quantum techniques for improved text classification.
+The natural language processing field requires sentiment analysis and text classification as essential functions, yet deep learning models from the past struggle to handle complex feature interactions with their existing modeling methods. To address this limitation, this paper proposes <strong>QDeBERTa-BiLSTM</strong>, a solution that employs a hybrid quantum-classical framework that integrates DeBERTa-based contextual embeddings, BiLSTM sequence modeling, and variational quantum circuits to enhance feature representation. The suggested model employs quantum circuits to represent nonlinear interactions while maintaining high contextual knowledge via transformer architectures. Multiple experiments are executed on benchmark datasets such as Spam, Movie Reviews (MR), and MPQA. The model outperforms several previous hybrid and classical baselines, achieving <strong>97.13\%</strong> accuracy on Spam and around <strong>86\%</strong> accuracy on both MR and MPQA. Furthermore, various quantum circuit designs are tested, revealing that circuit design has a major impact on performance. The results highlight the effectiveness of combining classical and quantum techniques for improved text classification.
 </HighlightedSection>
+### Results at a Glance
+
+<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+  <div class="bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md text-center border border-gray-700">
+    <h3 class="mt-0 text-4xl font-extrabold italic text-blue-400">97.1%</h3>
+    <p class="mt-0 text-lg font-semibold">Accuracy</p>
+    <p class="mt-0 text-sm text-gray-400">Spam · QC1</p>
+  </div>
+  <div class="bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md text-center border border-gray-700">
+    <h3 class="mt-0 text-4xl font-extrabold italic text-blue-400">86.0%</h3>
+    <p class="mt-0 text-lg font-semibold">Accuracy</p>
+    <p class="mt-0 text-sm text-gray-400">MPQA · QC4</p>
+  </div>
+  <div class="bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md text-center border border-gray-700">
+    <h3 class="mt-0 text-4xl font-extrabold italic text-blue-400">85.9%</h3>
+    <p class="mt-0 text-lg font-semibold">Accuracy</p>
+    <p class="mt-0 text-sm text-gray-400">Movie Reviews · QC1</p>
+  </div>
+</div>
+### Contributions
+<div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+  <div class="bg-gray-800 text-gray-100 p-3 rounded-lg shadow-md border border-gray-700">
+    <h3 class="mt-0 text-lg font-bold text-blue-400">01 • Novel Architecture</h3>
+    <p class="mt-0 text-sm text-gray-300">
+      Proposes <strong>QDeBERTa-BiLSTM</strong>, combining DeBERTa contextual embeddings, BiLSTM sequence modeling, 
+      and variational quantum circuits for enhanced text classification.
+    </p>
+  </div>
+
+  <div class="bg-gray-800 text-gray-100 p-3 rounded-lg shadow-md border border-gray-700">
+    <h3 class="mt-0 text-lg font-bold text-blue-400">02 • Circuit Study</h3>
+    <p class="mt-0 text-sm text-gray-300">
+      Evaluates four quantum circuit variants (QC1–QC4), revealing how circuit depth, gate types, 
+      and entanglement strategies affect classification across different datasets.
+    </p>
+  </div>
+
+  <div class="bg-gray-800 text-gray-100 p-3 rounded-lg shadow-md border border-gray-700">
+    <h3 class="mt-0 text-lg font-bold text-blue-400">03 • SOTA Results</h3>
+    <p class="mt-0 text-sm text-gray-300">
+      Achieves state-of-the-art results on Spam, MR, and MPQA — consistently matching or surpassing 
+      prior hybrid quantum and classical transformer baselines.
+    </p>
+  </div>
+
+  <div class="bg-gray-800 text-gray-100 p-3 rounded-lg shadow-md border border-gray-700">
+    <h3 class="mt-0 text-lg font-bold text-blue-400">04 • Complexity Analysis</h3>
+    <p class="mt-0 text-sm text-gray-300">
+      Full breakdown: <em>O(n² · d)</em> for DeBERTa, <em>O(n · h²)</em> for BiLSTM, modest <em>O(q · L)</em> for the quantum layer (practical at q = 2, L = 2).
+    </p>
+  </div>
+</div>
+
+
 
 ## System Architecture
+<section id="architecture" class="mb-12">
+  <p class="text-gray-300 mb-6">
+    The system passes each sentence through five sequential stages: subword tokenization and multi-component embedding,
+    transformer encoding via DeBERTa's disentangled attention, bidirectional LSTM sequence modeling, quantum feature
+    transformation via a variational circuit, and softmax classification.
+  </p>
 
-{/* ### Picture
+  <div class="flex flex-row items-center justify-center space-x-4">
+    <div class="bg-gray-800 text-gray-100 w-50 h-50 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
+      <span class="text-2xl mb-1">🔤</span>
+      <span class="font-semibold text-blue-400">Input</span>
+      <span class="text-sm text-gray-400">[CLS] tokens [SEP]</span>
+    </div>
+    <span class="text-2xl text-blue-400">›</span>
 
+    <div class="bg-gray-800 text-gray-100 w-50 h-50 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
+      <span class="text-2xl mb-1">📐</span>
+      <span class="font-semibold text-blue-400">Embedding</span>
+      <span class="text-sm text-gray-400">Token + Abs + Rel pos</span>
+    </div>
+    <span class="text-2xl text-blue-400">›</span>
 
-Use the `Picture` component to display images. If you have a figure in PDF format, you can pass in its path as the `src` prop and it will be converted into a web-friendly image automatically.
+    <div class="bg-gray-800 text-gray-100 w-50 h-50 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
+      <span class="text-2xl mb-1">🤖</span>
+      <span class="font-semibold text-blue-400">DeBERTa</span>
+      <span class="text-sm text-gray-400">N × transformer layers</span>
+    </div>
+    <span class="text-2xl text-blue-400">›</span>
 
-<Picture src={dogsDiffc} alt="Photo of two running dogs, lossily compressed using the DiffC algorithm" />
+    <div class="bg-gray-800 text-gray-100 w-50 h-50 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
+      <span class="text-2xl mb-1">↔</span>
+      <span class="font-semibold text-blue-400">BiLSTM</span>
+      <span class="text-sm text-gray-400">Fwd + bwd hidden states</span>
+    </div>
+    <span class="text-2xl text-blue-400">›</span>
 
-### Wide visual
+    <div class="bg-gray-800 text-gray-100 w-50 h-50 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
+      <span class="text-2xl mb-1">⚛</span>
+      <span class="font-semibold text-blue-400">Quantum</span>
+      <span class="text-sm text-gray-400">VQC + Pauli-Z measure</span>
+    </div>
+    <span class="text-2xl text-blue-400">›</span>
 
-I constrained the maximum width of the text column to make sure it's readable even when the screen is wide. But images and other visuals should "break out" and take up more horizontal space: for this, try wrapping them in the `Wide` component.
-
-<Wide>
-  <Picture src={dogsDiffc} alt="Photo of two running dogs, lossily compressed using the DiffC algorithm" />
-</Wide>
-
-### Figure with caption
-
-Wrap a visual in a `Figure` component to add a caption.
-
-<Figure>
-  <Picture slot="figure" src={dogsDiffc} alt="Photo of two running dogs, lossily compressed using the DiffC algorithm" />
-  <Fragment slot="caption">A photo of two dogs running side-by-side in shallow water, lossily compressed using the [DiffC algorithm](https://jeremyiv.github.io/diffc-project-page/).</Fragment>
-</Figure> */}
-
+    <div class="bg-gray-800 text-gray-100 w-50 h-50 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
+      <span class="text-2xl mb-1">📊</span>
+      <span class="font-semibold text-blue-400">Output</span>
+      <span class="text-sm text-gray-400">FC + Softmax</span>
+    </div>
+  </div>
+</section>
 
 <Figure>
   <Picture slot="figure" src="../assets/system.pdf" alt="System architecture diagram" />
@@ -170,70 +257,7 @@ We explore four circuit types:
 | Feature Map | Pauli-Z |  |  |
 | Simulator | Pennylane-Default |  |  |
 
-{/* Use the `Comparison` component to compare two visuals with an interactive slider.
-
-<Comparison client:idle >
-  <Picture slot="itemOne" src={dogsDiffc} alt="Photo of two running dogs, lossily compressed using the DiffC algorithm" />
-  <Picture slot="itemTwo" src={dogsTrue} alt="True photo of two dogs running side-by-side in shallow water" />
-</Comparison>
-
-### Tab panels
-
-Tab panels are a great way to display a labeled collection of related visuals without taking up too much space.
-
-<Tabs defaultValue="true">
-  <TabsList>
-    <TabsTrigger value="true">Ground truth</TabsTrigger>
-    <TabsTrigger value="diffc">DiffC (Flux-dev)</TabsTrigger>
-    <TabsTrigger value="msillm">MS-ILLM</TabsTrigger>
-  </TabsList>
-  <TabsContent value="true">
-    <Picture
-      src={dogsTrue}
-      alt="True photo of two dogs running side-by-side in shallow water"
-    />
-  </TabsContent>
-  <TabsContent value="diffc">
-    <Picture
-      src={dogsDiffc}
-      alt="Photo of two running dogs, lossily compressed using the DiffC algorithm"
-    />
-  </TabsContent>
-  <TabsContent value="msillm">
-    <Picture
-      src={dogsMsillm}
-      alt="Photo of two running dogs, lossily compressed using MS-ILLM"
-    />
-  </TabsContent>
-</Tabs>
-
-### Carousel
-
-A carousel is another useful pattern for a collection of visuals that don't necessarily have meaningful labels.
-
-<Carousel>
-  <CarouselSlide>
-    <Picture src={dogsTrue} alt="True photo of two dogs running side-by-side in shallow water" />
-  </CarouselSlide>
-  <CarouselSlide>
-    <Picture src={dogsDiffc} alt="Photo of two running dogs, lossily compressed using the DiffC algorithm" />
-  </CarouselSlide>
-  <CarouselSlide>
-    <Picture
-      src={dogsMsillm}
-      alt="Photo of two running dogs, lossily compressed using MS-ILLM"
-    />
-  </CarouselSlide>
-</Carousel>
-
-## Two columns
-
-Use the two columns component to display two columns of content. In this example, the first column contains a YouTube video embed and the second column contains an interactive 3D model viewer. By default, they display side by side, but if the screen is narrow enough (for example, on mobile), they're arranged vertically.
-
-<TwoColumns>
-  <YouTubeVideo slot="left" videoId="wjZofJX0v4M" />
-  <ModelViewer slot="right" src="/BoxVertexColors.glb" alt="A cube colored with a rainbow gradient" />
-</TwoColumns> */}
+## Results and Discussion
 
 ## $\LaTeX$
 
