@@ -224,7 +224,7 @@ The natural language processing field requires sentiment analysis and text class
 
     <h4>Quantum Transformation &amp; Measurement</h4>
     <p>Classical features are angle-encoded via parameterized rotations. The variational unitary $U(\theta)$ is optimized jointly with the classical network. Pauli-$Z$ expectation values form the quantum feature vector:</p>
-    <div class="eq">$$|\psi(\theta)\rangle=U(\theta)|\psi_1\rangle \qquad z_i=\langle\psi(\theta)|Z_i|\psi(\theta)\rangle \qquad \mathbf{z}=[z_1,\ldots,z_q]$$</div>
+    <div class="eq overflow-x-auto whitespace-nowrap">$$|\psi(\theta)\rangle=U(\theta)|\psi_1\rangle \qquad z_i=\langle\psi(\theta)|Z_i|\psi(\theta)\rangle \qquad \mathbf{z}=[z_1,\ldots,z_q]$$</div>
 
     <h4>Computational Complexity</h4>
     <div class="tw">
@@ -448,6 +448,41 @@ The natural language processing field requires sentiment analysis and text class
       </figcaption>
     </figure>
 </section>
+<div class="tw">
+  <table class="divide-x divide-gray-800 w-full text-sm text-gray-200">
+    <thead class=" text-white">
+      <tr>
+        <th>Dataset</th>
+        <th>Metric</th>
+        <th>BiLSTM</th>
+        <th>DeBERTa-BiLSTM</th>
+        <th>DeBERTa-BiLSTM-MLP</th>
+        <th>Proposed</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td rowspan="6">Spam</td><td>Accuracy</td><td>0.7826</td><td>0.9164</td><td>0.9231</td><td class="text-blue-400 font-bold">0.9666</td></tr>
+      <tr><td>Precision</td><td>0.7972</td><td>0.9166</td><td>0.9235</td><td class="text-blue-400 font-bold">0.9664</td></tr>
+      <tr><td>Recall</td><td>0.7826</td><td>0.9164</td><td>0.9231</td><td class="text-blue-400 font-bold">0.9668</td></tr>
+      <tr><td>Specificity</td><td>0.6733</td><td>0.9067</td><td>0.9400</td><td class="text-blue-400 font-bold">0.9668</td></tr>
+      <tr><td>F1-score</td><td>0.7800</td><td>0.9164</td><td>0.9231</td><td class="text-blue-400 font-bold">0.9665</td></tr>
+      <tr><td>AUC</td><td>0.8800</td><td>0.9708</td><td>0.9765</td><td class="text-blue-400 font-bold">0.9886</td></tr>
+      <tr><td rowspan="6" class="border-r border-gray-800">MPQA</td><td>Accuracy</td><td>0.7276</td><td>0.8303</td><td>0.8270</td><td class="text-blue-400 font-bold">0.8605</td></tr>
+      <tr><td>Precision</td><td>0.7277</td><td>0.8312</td><td>0.8273</td><td class="text-blue-400 font-bold">0.8613</td></tr>
+      <tr><td>Recall</td><td>0.7276</td><td>0.8303</td><td>0.8270</td><td class="text-blue-400 font-bold">0.8607</td></tr>
+      <tr><td>Specificity</td><td>0.7387</td><td>0.8035</td><td>0.8140</td><td class="text-blue-400 font-bold">0.8607</td></tr>
+      <tr><td>F1-score</td><td>0.7275</td><td>0.8302</td><td>0.8270</td><td class="text-blue-400 font-bold">0.8605</td></tr>
+      <tr><td>AUC</td><td>0.8047</td><td>0.8910</td><td class="text-blue-400 font-bold">0.8943</td><td>0.8739</td></tr>
+      <tr><td rowspan="6" class="border-r border-gray-800">MR</td><td>Accuracy</td><td>0.7121</td><td>0.8322</td><td>0.8044</td><td class="text-blue-400 font-bold">0.8594</td></tr>
+      <tr><td>Precision</td><td>0.7121</td><td>0.7702</td><td>0.8047</td><td class="text-blue-400 font-bold">0.8523</td></tr>
+      <tr><td>Recall</td><td>0.7121</td><td class="text-blue-400 font-bold">0.9465</td><td>0.8044</td><td>0.8589</td></tr>
+      <tr><td>Specificity</td><td>0.7142</td><td>0.7179</td><td>0.7887</td><td class="text-blue-400 font-bold">0.8597</td></tr>
+      <tr><td>F1-score</td><td>0.7121</td><td>0.8493</td><td>0.8043</td><td class="text-blue-400 font-bold">0.8556</td></tr>
+      <tr><td>AUC</td><td>0.7871</td><td>0.9192</td><td>0.8864</td><td class="text-blue-400 font-bold">0.9271</td></tr>
+    </tbody>
+  </table>
+</div>
+<p class="tc"><strong>Table 3:</strong> Comparison of baseline models and the proposed QDeBERTa-BiLSTM across Spam, MPQA, and MR datasets.</p>
 <section class="sec" id="setup">
   <div class="col">
     <h2>Experimental Setup</h2>
