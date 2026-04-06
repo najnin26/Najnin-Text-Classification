@@ -219,19 +219,19 @@ The natural language processing field requires sentiment analysis and text class
   <div class="col">
     <h4>Embedding Representation</h4>
     <p>Each token embedding is formed by summing three components — subword, absolute positional, and relative positional:</p>
-    <div class="eq">$$E = E_{"{token}"} + E_{"{abs}"} + E_{"{rel}"}$$</div>
+    <div class="eq">$$E = E_{\text{token}} + E_{\text{abs}} + E_{\text{rel}}$$</div>
 
     <h4>DeBERTa — Disentangled Attention</h4>
     <p>DeBERTa separates content and position information. The attention score between tokens $W_i$ and $W_j$ is computed as:</p>
-    <div class="eq">$$\text{"{"Attention{"}"}(W_i, W_j) = \text{"{"Softmax{"}"}\!\left(\frac{"{"V_{"{W_i}"}^Q\!\left(V_{"{W_j}"}^K\right)^{\!T}{"}"}}{"{"}\sqrt{"{d_k}"}{"}"}\right)V_{"{W_j}"}^V$$</div>
+    <div class="eq">$$\text{Attention}(W_i, W_j)=\text{Softmax}\!\left(\frac{V_{W_i}^Q\left(V_{W_j}^K\right)^T}{\sqrt{d_k}}\right)V_{W_j}^V$$</div>
 
     <h4>BiLSTM — Bidirectional Sequence Modeling</h4>
     <p>The BiLSTM processes sequences in both forward and backward directions, concatenating the hidden states:</p>
-    <div class="eq">$$\overrightarrow{"{"h_t{"}"}=\text{"{"LSTM_f{"}"}(H_t) \qquad \overleftarrow{"{"h_t{"}"}=\text{"{"LSTM_b{"}"}(H_t) \qquad h_t=\bigl[\overrightarrow{"{"h_t{"}"};\,\overleftarrow{"{"h_t{"}"}\bigr]$$</div>
+    <div class="eq">$$\overrightarrow{h_t}=\mathrm{LSTM}_f(H_t),\qquad \overleftarrow{h_t}=\mathrm{LSTM}_b(H_t),\qquad h_t=\bigl[\overrightarrow{h_t};\,\overleftarrow{h_t}\bigr]$$</div>
 
     <h4>Quantum State Initialization</h4>
     <p>Qubits start in the ground state. Hadamard gates create superposition:</p>
-    <div class="eq">$$|\psi_0\rangle=|0\rangle^{"{\\otimes q}"} \qquad |\psi_1\rangle=H^{"{\\otimes q}"}|\psi_0\rangle$$</div>
+    <div class="eq">$$|\psi_0\rangle=|0\rangle^{\otimes q},\qquad |\psi_1\rangle=H^{\otimes q}|\psi_0\rangle$$</div>
 
     <h4>Quantum Transformation &amp; Measurement</h4>
     <p>Classical features are angle-encoded via parameterized rotations. The variational unitary $U(\theta)$ is optimized jointly with the classical network. Pauli-$Z$ expectation values form the quantum feature vector:</p>
@@ -287,7 +287,7 @@ The natural language processing field requires sentiment analysis and text class
         </p>
         <div class="qstar mt-2 text-yellow-400 text-xs">⭐ Best overall — most stable across all datasets</div>
         <div class="eq bg-gray-900 text-white p-3 rounded-lg text-center mt-3 text-xs overflow-x-auto">
-          $$U_{"{C1}"}(\theta)=\prod_{"{i=1}"}^{"{q-1}"}\!\text{"{"CNOT{"}"}_{"{"i,i+1{"}"}\cdot\prod_{"{"i=1{"}"}^{"{q}"}R_Y(\theta_i^y)R_X(\theta_i^x)$$
+          $$U_{C1}(\theta)=\left(\prod_{i=1}^{q-1}\mathrm{CNOT}_{i,i+1}\right)\left(\prod_{i=1}^{q}R_Y(\theta_i^y)R_X(\theta_i^x)\right)$$
         </div>
       </div>
 
@@ -298,7 +298,7 @@ The natural language processing field requires sentiment analysis and text class
           Single-qubit RX and RY rotations only — no entangling gates. Each qubit evolves independently, encoding classical features into quantum amplitudes.
         </p>
         <div class="eq bg-gray-900 text-white p-3 rounded-lg text-center mt-3 text-xs overflow-x-auto">
-          $$U_{"{C2}"}(\theta)=\prod_{"{i=1}"}^{"{q}"}R_Y(\theta_i^y)R_X(\theta_i^x)$$
+          $$U_{C2}(\theta)=\prod_{i=1}^{q}R_Y(\theta_i^y)R_X(\theta_i^x)$$
         </div>
       </div>
 
@@ -309,7 +309,7 @@ The natural language processing field requires sentiment analysis and text class
           Multiple stacked layers of RX → RY → RZ on every qubit. Greater circuit depth increases expressibility for complex feature transformations.
         </p>
         <div class="eq bg-gray-900 text-white p-3 rounded-lg text-center mt-3 text-xs overflow-x-auto">
-          $$U_{"{C3}"}(\theta)=\prod_{"{l=1}"}^{"{L}"}\prod_{"{i=1}"}^{"{q}"}R_Z(\theta_{"{"i,l{"}"}^z)R_Y(\theta_{"{"i,l{"}"}^y)R_X(\theta_{"{"i,l{"}"}^x)$$
+          $$U_{C3}(\theta)=\prod_{l=1}^{L}\prod_{i=1}^{q}R_Z(\theta_{i,l}^z)R_Y(\theta_{i,l}^y)R_X(\theta_{i,l}^x)$$
         </div>
       </div>
 
@@ -321,7 +321,7 @@ The natural language processing field requires sentiment analysis and text class
         </p>
         <div class="qstar mt-2 text-yellow-400 text-xs">⭐ Best on MPQA — superior for sentiment-intensive tasks</div>
         <div class="eq bg-gray-900 text-white p-3 rounded-lg text-center mt-3 text-xs overflow-x-auto">
-          $$U_{"{C4}"}(\theta)=\prod_{"{i=1}"}^{"{q-1}"}\!\text{"{"CNOT{"}"}_{"{"i,i+1{"}"}\cdot\prod_{"{"i=1{"}"}^{"{q}"}R_Z(\theta_i^z)R_Y(\theta_i^y)R_X(\theta_i^x)$$
+          $$U_{C4}(\theta)=\left(\prod_{i=1}^{q-1}\mathrm{CNOT}_{i,i+1}\right)\left(\prod_{i=1}^{q}R_Z(\theta_i^z)R_Y(\theta_i^y)R_X(\theta_i^x)\right)$$
         </div>
       </div>
 
