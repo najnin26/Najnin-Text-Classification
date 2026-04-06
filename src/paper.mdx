@@ -35,13 +35,8 @@ links:
     url: https://github.com/RomanHauksson/academic-project-astro-template
     icon: ri:slideshow-2-line
 
-# The color theme of the page. Defaults to "device" (the preference set in the user's brower or operating system). Setting this to "light" or "dark" will override the user's preference. This is useful if your figures only look good in one theme.
 theme: device
-
-# This is the icon that appears in the user's browser tab. To customize, change the favicon.svg file in /public/, or add your own file to /public/ and change the filename here.
 favicon: favicon.svg
-
-# These keys are optional. If a link to your project page is in a Google search result, text message, or social media post, it will often appear as a "link preview card" based on its title, description, favicon, and thumbnail. After you publish your page, you can double check that these previews look right using [this tool](https://linkpreview.xyz/)
 description: Simple project page template for your research paper, built with Astro and Tailwind
 thumbnail: screenshot-light.png
 ---
@@ -65,28 +60,34 @@ import dogsDiffc from "./assets/dogs-diffc.png"
 import dogsTrue from "./assets/dogs-true.png"
 import dogsMsillm from "@/assets/dogs-msillm.jpg"
 
-{/* <Video src={outside} /> */}
+{/* ─── Sticky Navigation ─── */}
 <header class="sticky top-0 z-50 w-full border-b border-gray-700 bg-black flex justify-center">
-  <nav class="flex justify-center gap-8 py-3 text-sm font-medium">
-    <a href="#abstract" class="text-gray-300 hover:text-blue-400 no-underline">Abstract</a>
+  <nav class="flex flex-wrap justify-center gap-x-5 gap-y-2 py-3 px-4 text-xs sm:text-sm font-medium">
+    <a href="#abstract"     class="text-gray-300 hover:text-blue-400 no-underline">Abstract</a>
     <a href="#architecture" class="text-gray-300 hover:text-blue-400 no-underline">Architecture</a>
-    <a href="#methodology" class="text-gray-300 hover:text-blue-400 no-underline">Methodology</a>
-    <a href="#circuits" class="text-gray-300 hover:text-blue-400 no-underline">Circuits</a>
-    <a href="#results" class="text-gray-300 hover:text-blue-400 no-underline">Results</a>
-    <a href="#setup" class="text-gray-300 hover:text-blue-400 no-underline">Setup</a>
-    <a href="#citation" class="text-gray-300 hover:text-blue-400 no-underline">Citation</a>
+    <a href="#methodology"  class="text-gray-300 hover:text-blue-400 no-underline">Methodology</a>
+    <a href="#circuits"     class="text-gray-300 hover:text-blue-400 no-underline">Circuits</a>
+    <a href="#results"      class="text-gray-300 hover:text-blue-400 no-underline">Results</a>
+    <a href="#setup"        class="text-gray-300 hover:text-blue-400 no-underline">Setup</a>
+    <a href="#citation"     class="text-gray-300 hover:text-blue-400 no-underline">Citation</a>
   </nav>
 </header>
 
-
+{/* ─── Abstract ─── */}
 <HighlightedSection>
 
 ## Abstract
-The natural language processing field requires sentiment analysis and text classification as essential functions, yet deep learning models from the past struggle to handle complex feature interactions with their existing modeling methods. To address this limitation, this paper proposes <strong>QDeBERTa-BiLSTM</strong>, a solution that employs a hybrid quantum-classical framework that integrates DeBERTa-based contextual embeddings, BiLSTM sequence modeling, and variational quantum circuits to enhance feature representation. The suggested model employs quantum circuits to represent nonlinear interactions while maintaining high contextual knowledge via transformer architectures. Multiple experiments are executed on benchmark datasets such as Spam, Movie Reviews (MR), and MPQA. The model outperforms several previous hybrid and classical baselines, achieving <strong>97.13\%</strong> accuracy on Spam and around <strong>86\%</strong> accuracy on both MR and MPQA. Furthermore, various quantum circuit designs are tested, revealing that circuit design has a major impact on performance. The results highlight the effectiveness of combining classical and quantum techniques for improved text classification.
+<div id="abstract">
+
+The natural language processing field requires sentiment analysis and text classification as essential functions, yet deep learning models from the past struggle to handle complex feature interactions with their existing modeling methods. To address this limitation, this paper proposes <strong>QDeBERTa-BiLSTM</strong>, a solution that employs a hybrid quantum-classical framework that integrates DeBERTa-based contextual embeddings, BiLSTM sequence modeling, and variational quantum circuits to enhance feature representation. The suggested model employs quantum circuits to represent nonlinear interactions while maintaining high contextual knowledge via transformer architectures. Multiple experiments are executed on benchmark datasets such as Spam, Movie Reviews (MR), and MPQA. The model outperforms several previous hybrid and classical baselines, achieving <strong>97.13%</strong> accuracy on Spam and around <strong>86%</strong> accuracy on both MR and MPQA. Furthermore, various quantum circuit designs are tested, revealing that circuit design has a major impact on performance. The results highlight the effectiveness of combining classical and quantum techniques for improved text classification.
+
+</div>
 </HighlightedSection>
 
+{/* ─── Results at a Glance ─── */}
 ### Results at a Glance
-<div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+
+<div class="grid grid-cols-1 sm:grid-cols-3 gap-6 mb-8">
   <div class="bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md text-center border border-gray-700">
     <h3 class="mt-0 text-4xl font-extrabold italic text-blue-400">97.1%</h3>
     <p class="mt-0 text-lg font-semibold">Accuracy</p>
@@ -103,32 +104,32 @@ The natural language processing field requires sentiment analysis and text class
     <p class="mt-0 text-sm text-gray-400">Movie Reviews · QC1</p>
   </div>
 </div>
+
+{/* ─── Contributions ─── */}
 ### Contributions
-<div class="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
+
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 mb-8">
   <div class="bg-gray-800 text-gray-100 p-3 rounded-lg shadow-md border border-gray-700">
     <h3 class="mt-0 text-lg font-bold text-blue-400">01 • Novel Architecture</h3>
     <p class="mt-0 text-sm text-gray-300">
-      Proposes <strong>QDeBERTa-BiLSTM</strong>, combining DeBERTa contextual embeddings, BiLSTM sequence modeling, 
+      Proposes <strong>QDeBERTa-BiLSTM</strong>, combining DeBERTa contextual embeddings, BiLSTM sequence modeling,
       and variational quantum circuits for enhanced text classification.
     </p>
   </div>
-
   <div class="bg-gray-800 text-gray-100 p-3 rounded-lg shadow-md border border-gray-700">
     <h3 class="mt-0 text-lg font-bold text-blue-400">02 • Circuit Study</h3>
     <p class="mt-0 text-sm text-gray-300">
-      Evaluates four quantum circuit variants (QC1–QC4), revealing how circuit depth, gate types, 
+      Evaluates four quantum circuit variants (QC1–QC4), revealing how circuit depth, gate types,
       and entanglement strategies affect classification across different datasets.
     </p>
   </div>
-
   <div class="bg-gray-800 text-gray-100 p-3 rounded-lg shadow-md border border-gray-700">
     <h3 class="mt-0 text-lg font-bold text-blue-400">03 • SOTA Results</h3>
     <p class="mt-0 text-sm text-gray-300">
-      Achieves state-of-the-art results on Spam, MR, and MPQA — consistently matching or surpassing 
+      Achieves state-of-the-art results on Spam, MR, and MPQA — consistently matching or surpassing
       prior hybrid quantum and classical transformer baselines.
     </p>
   </div>
-
   <div class="bg-gray-800 text-gray-100 p-3 rounded-lg shadow-md border border-gray-700">
     <h3 class="mt-0 text-lg font-bold text-blue-400">04 • Complexity Analysis</h3>
     <p class="mt-0 text-sm text-gray-300">
@@ -137,7 +138,9 @@ The natural language processing field requires sentiment analysis and text class
   </div>
 </div>
 
+{/* ─── System Architecture ─── */}
 ## System Architecture
+
 <section id="architecture" class="mb-12">
   <p class="text-gray-300 mb-6">
     The system passes each sentence through five sequential stages: subword tokenization and multi-component embedding,
@@ -145,90 +148,100 @@ The natural language processing field requires sentiment analysis and text class
     transformation via a variational circuit, and softmax classification.
   </p>
 
-  <div class="flex flex-row items-center justify-center space-x-4">
-    <div class="bg-gray-800 text-gray-100 w-50 h-50 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
+  {/* Pipeline — stacks vertically on mobile, row on sm+ */}
+  <div class="flex flex-col sm:flex-row flex-wrap items-center justify-center gap-3">
+
+    <div class="bg-gray-800 text-gray-100 w-full sm:w-36 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
       <span class="text-2xl mb-1">🔤</span>
       <span class="font-semibold text-blue-400">Input</span>
       <span class="text-sm text-gray-400">[CLS] tokens [SEP]</span>
     </div>
-    <span class="text-2xl text-blue-400">›</span>
+    <span class="text-2xl text-blue-400 sm:rotate-0 rotate-90">›</span>
 
-    <div class="bg-gray-800 text-gray-100 w-50 h-50 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
+    <div class="bg-gray-800 text-gray-100 w-full sm:w-36 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
       <span class="text-2xl mb-1">📐</span>
       <span class="font-semibold text-blue-400">Embedding</span>
       <span class="text-sm text-gray-400">Token + Abs + Rel pos</span>
     </div>
-    <span class="text-2xl text-blue-400">›</span>
+    <span class="text-2xl text-blue-400 sm:rotate-0 rotate-90">›</span>
 
-    <div class="bg-gray-800 text-gray-100 w-50 h-50 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
+    <div class="bg-gray-800 text-gray-100 w-full sm:w-36 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
       <span class="text-2xl mb-1">🤖</span>
       <span class="font-semibold text-blue-400">DeBERTa</span>
       <span class="text-sm text-gray-400">N × transformer layers</span>
     </div>
-    <span class="text-2xl text-blue-400">›</span>
+    <span class="text-2xl text-blue-400 sm:rotate-0 rotate-90">›</span>
 
-    <div class="bg-gray-800 text-gray-100 w-50 h-50 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
+    <div class="bg-gray-800 text-gray-100 w-full sm:w-36 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
       <span class="text-2xl mb-1">↔</span>
       <span class="font-semibold text-blue-400">BiLSTM</span>
       <span class="text-sm text-gray-400">Fwd + bwd hidden states</span>
     </div>
-    <span class="text-2xl text-blue-400">›</span>
+    <span class="text-2xl text-blue-400 sm:rotate-0 rotate-90">›</span>
 
-    <div class="bg-gray-800 text-gray-100 w-50 h-50 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
+    <div class="bg-gray-800 text-gray-100 w-full sm:w-36 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
       <span class="text-2xl mb-1">⚛</span>
       <span class="font-semibold text-blue-400">Quantum</span>
       <span class="text-sm text-gray-400">VQC + Pauli-Z measure</span>
     </div>
-    <span class="text-2xl text-blue-400">›</span>
+    <span class="text-2xl text-blue-400 sm:rotate-0 rotate-90">›</span>
 
-    <div class="bg-gray-800 text-gray-100 w-50 h-50 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
+    <div class="bg-gray-800 text-gray-100 w-full sm:w-36 p-4 rounded-lg shadow-md border border-gray-700 flex flex-col items-center justify-center text-center">
       <span class="text-2xl mb-1">📊</span>
       <span class="font-semibold text-blue-400">Output</span>
       <span class="text-sm text-gray-400">FC + Softmax</span>
     </div>
+
   </div>
-  <figure class="fig">
-  <Picture slot="figure" src="../assets/system.pdf" alt="System architecture diagram" />
-  <figcaption>
-    <strong>Figure 1:</strong> System architecture of QDeBERTa-BiLSTM. Input tokens are embedded using three positional components, 
-    encoded by DeBERTa's disentangled attention, processed by a BiLSTM, quantum-transformed via a variational circuit, 
-    and classified by a FC softmax head.
-  </figcaption>
-</figure>
-<ol class="plist">
-      <li><strong>Input Layer</strong> — Subword tokenization; sequence bounded to 128 tokens with [CLS]/[SEP]</li>
-      <li><strong>DeBERTa Encoder</strong> — Disentangled attention over content and position embeddings for rich contextual representations</li>
-      <li><strong>BiLSTM Layer</strong> — Forward and backward LSTM states concatenated for sequential dependency learning</li>
-      <li><strong>Quantum Layer</strong> — Variational quantum circuit performing nonlinear feature mapping via Hadamard, rotation, and entangling gates</li>
-      <li><strong>Output Layer</strong> — Fully connected layer + softmax; trained with cross-entropy loss</li>
-    </ol>
+
+  <figure class="fig mt-6">
+    <Picture slot="figure" src="../assets/system.pdf" alt="System architecture diagram" />
+    <figcaption>
+      <strong>Figure 1:</strong> System architecture of QDeBERTa-BiLSTM. Input tokens are embedded using three positional components,
+      encoded by DeBERTa's disentangled attention, processed by a BiLSTM, quantum-transformed via a variational circuit,
+      and classified by a FC softmax head.
+    </figcaption>
+  </figure>
+
+  <ol class="plist mt-4 space-y-1 text-gray-300 text-sm sm:text-base">
+    <li><strong>Input Layer</strong> — Subword tokenization; sequence bounded to 128 tokens with [CLS]/[SEP]</li>
+    <li><strong>DeBERTa Encoder</strong> — Disentangled attention over content and position embeddings for rich contextual representations</li>
+    <li><strong>BiLSTM Layer</strong> — Forward and backward LSTM states concatenated for sequential dependency learning</li>
+    <li><strong>Quantum Layer</strong> — Variational quantum circuit performing nonlinear feature mapping via Hadamard, rotation, and entangling gates</li>
+    <li><strong>Output Layer</strong> — Fully connected layer + softmax; trained with cross-entropy loss</li>
+  </ol>
 </section>
+
+{/* ─── Methodology ─── */}
 ## Methodology
+
 <section class="sec" id="methodology">
   <div class="col">
     <h4>Embedding Representation</h4>
     <p>Each token embedding is formed by summing three components — subword, absolute positional, and relative positional:</p>
-    <div class="eq">$$E = E_{token} + E_{abs} + E_{rel}$$</div>
+    <div class="eq">$$E = E_{"{token}"} + E_{"{abs}"} + E_{"{rel}"}$$</div>
 
     <h4>DeBERTa — Disentangled Attention</h4>
     <p>DeBERTa separates content and position information. The attention score between tokens $W_i$ and $W_j$ is computed as:</p>
-    <div class="eq">$$\text{Attention}(W_i, W_j) = \text{Softmax}\!\left(\frac{V_{W_i}^Q\!\left(V_{W_j}^K\right)^{\!T}}{\sqrt{d_k}}\right)V_{W_j}^V$$</div>
+    <div class="eq">$$\text{"{"Attention{"}"}(W_i, W_j) = \text{"{"Softmax{"}"}\!\left(\frac{"{"V_{"{W_i}"}^Q\!\left(V_{"{W_j}"}^K\right)^{\!T}{"}"}}{"{"}\sqrt{"{d_k}"}{"}"}\right)V_{"{W_j}"}^V$$</div>
 
     <h4>BiLSTM — Bidirectional Sequence Modeling</h4>
     <p>The BiLSTM processes sequences in both forward and backward directions, concatenating the hidden states:</p>
-    <div class="eq">$$\overrightarrow{h_t}=\text{LSTM}_f(H_t) \qquad \overleftarrow{h_t}=\text{LSTM}_b(H_t) \qquad h_t=\bigl[\overrightarrow{h_t};\,\overleftarrow{h_t}\bigr]$$</div>
+    <div class="eq">$$\overrightarrow{"{"h_t{"}"}=\text{"{"LSTM_f{"}"}(H_t) \qquad \overleftarrow{"{"h_t{"}"}=\text{"{"LSTM_b{"}"}(H_t) \qquad h_t=\bigl[\overrightarrow{"{"h_t{"}"};\,\overleftarrow{"{"h_t{"}"}\bigr]$$</div>
 
     <h4>Quantum State Initialization</h4>
     <p>Qubits start in the ground state. Hadamard gates create superposition:</p>
-    <div class="eq">$$|\psi_0\rangle=|0\rangle^{\otimes q} \qquad |\psi_1\rangle=H^{\otimes q}|\psi_0\rangle$$</div>
+    <div class="eq">$$|\psi_0\rangle=|0\rangle^{"{\\otimes q}"} \qquad |\psi_1\rangle=H^{"{\\otimes q}"}|\psi_0\rangle$$</div>
 
     <h4>Quantum Transformation &amp; Measurement</h4>
     <p>Classical features are angle-encoded via parameterized rotations. The variational unitary $U(\theta)$ is optimized jointly with the classical network. Pauli-$Z$ expectation values form the quantum feature vector:</p>
-    <div class="eq overflow-x-auto whitespace-nowrap">$$|\psi(\theta)\rangle=U(\theta)|\psi_1\rangle \qquad z_i=\langle\psi(\theta)|Z_i|\psi(\theta)\rangle \qquad \mathbf{z}=[z_1,\ldots,z_q]$$</div>
+    <div class="eq overflow-x-auto whitespace-nowrap text-sm sm:text-base">
+      $$|\psi(\theta)\rangle=U(\theta)|\psi_1\rangle \qquad z_i=\langle\psi(\theta)|Z_i|\psi(\theta)\rangle \qquad \mathbf{"{z}"}=[z_1,\ldots,z_q]$$
+    </div>
 
     <h4>Computational Complexity</h4>
-    <div class="tw">
-      <table>
+    <div class="overflow-x-auto w-full">
+      <table class="min-w-[520px] w-full text-sm text-gray-200">
         <thead>
           <tr><th>Component</th><th>Complexity</th><th>Notes</th></tr>
         </thead>
@@ -246,13 +259,15 @@ The natural language processing field requires sentiment analysis and text class
           <tr>
             <td>Variational quantum circuit</td>
             <td>$O(q \cdot L)$</td>
-            <td>Minimal at $q{=}2, L{=}2$</td>
+            <td>Minimal at $q{"{"}{={"}"}2, L{"{"}{={"}"}2$</td>
           </tr>
         </tbody>
       </table>
     </div>
   </div>
 </section>
+
+{/* ─── Quantum Circuit Designs ─── */}
 <section class="sec" id="circuits">
   <div class="col">
     <h2>Quantum Circuit Designs</h2>
@@ -260,145 +275,136 @@ The natural language processing field requires sentiment analysis and text class
       Four variational quantum circuit architectures are explored, each exposing different combinations of rotation depth,
       entanglement strategy, and controlled operations — allowing a systematic study of how circuit design impacts downstream classification.
     </p>
-    <div class="grid grid-cols-2 gap-6 mt-6">
+
+    {/* 1 col on mobile, 2 col on md+ */}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-6">
+
       <div class="qc bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md border border-gray-700">
         <span class="qb qb1">QC1</span>
-        <div class="qt font-semibold text-blue-400">Entangling Circuit</div>
+        <div class="qt font-semibold text-blue-400 mt-2">Entangling Circuit</div>
         <p class="qd text-sm text-gray-300 mt-2">
           Hadamard initialization → RX/RY rotations → CNOT entanglement between adjacent qubits, enabling inter-qubit correlation discovery.
         </p>
         <div class="qstar mt-2 text-yellow-400 text-xs">⭐ Best overall — most stable across all datasets</div>
-        <div class="eq bg-gray-900 text-white p-3 rounded-lg text-center mt-3 text-xs">
-          $$U_{C1}(\theta)=\prod_{i=1}^{q-1}\!\text{CNOT}_{i,i+1}\cdot\prod_{i=1}^{q}R_Y(\theta_i^y)R_X(\theta_i^x)$$
+        <div class="eq bg-gray-900 text-white p-3 rounded-lg text-center mt-3 text-xs overflow-x-auto">
+          $$U_{"{C1}"}(\theta)=\prod_{"{i=1}"}^{"{q-1}"}\!\text{"{"CNOT{"}"}_{"{"i,i+1{"}"}\cdot\prod_{"{"i=1{"}"}^{"{q}"}R_Y(\theta_i^y)R_X(\theta_i^x)$$
         </div>
       </div>
 
       <div class="qc bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md border border-gray-700">
         <span class="qb qb2">QC2</span>
-        <div class="qt font-semibold text-blue-400">Rotation-Based Circuit</div>
+        <div class="qt font-semibold text-blue-400 mt-2">Rotation-Based Circuit</div>
         <p class="qd text-sm text-gray-300 mt-2">
           Single-qubit RX and RY rotations only — no entangling gates. Each qubit evolves independently, encoding classical features into quantum amplitudes.
         </p>
-        <div class="eq bg-gray-900 text-white p-3 rounded-lg text-center mt-3 text-xs">
-          $$U_{C2}(\theta)=\prod_{i=1}^{q}R_Y(\theta_i^y)R_X(\theta_i^x)$$
+        <div class="eq bg-gray-900 text-white p-3 rounded-lg text-center mt-3 text-xs overflow-x-auto">
+          $$U_{"{C2}"}(\theta)=\prod_{"{i=1}"}^{"{q}"}R_Y(\theta_i^y)R_X(\theta_i^x)$$
         </div>
       </div>
 
       <div class="qc bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md border border-gray-700">
         <span class="qb qb3">QC3</span>
-        <div class="qt font-semibold text-blue-400">Layered Rotation Circuit</div>
+        <div class="qt font-semibold text-blue-400 mt-2">Layered Rotation Circuit</div>
         <p class="qd text-sm text-gray-300 mt-2">
           Multiple stacked layers of RX → RY → RZ on every qubit. Greater circuit depth increases expressibility for complex feature transformations.
         </p>
-        <div class="eq bg-gray-900 text-white p-3 rounded-lg text-center mt-3 text-xs">
-          $$U_{C3}(\theta)=\prod_{l=1}^{L}\prod_{i=1}^{q}R_Z(\theta_{i,l}^z)R_Y(\theta_{i,l}^y)R_X(\theta_{i,l}^x)$$
+        <div class="eq bg-gray-900 text-white p-3 rounded-lg text-center mt-3 text-xs overflow-x-auto">
+          $$U_{"{C3}"}(\theta)=\prod_{"{l=1}"}^{"{L}"}\prod_{"{i=1}"}^{"{q}"}R_Z(\theta_{"{"i,l{"}"}^z)R_Y(\theta_{"{"i,l{"}"}^y)R_X(\theta_{"{"i,l{"}"}^x)$$
         </div>
       </div>
 
       <div class="qc bg-gray-800 text-gray-100 p-4 rounded-lg shadow-md border border-gray-700">
         <span class="qb qb4">QC4</span>
-        <div class="qt font-semibold text-blue-400">Controlled Operation Circuit</div>
+        <div class="qt font-semibold text-blue-400 mt-2">Controlled Operation Circuit</div>
         <p class="qd text-sm text-gray-300 mt-2">
           RX/RY/RZ rotations combined with CNOT-based controlled operations, enhancing inter-qubit information transfer for complex feature modeling.
         </p>
         <div class="qstar mt-2 text-yellow-400 text-xs">⭐ Best on MPQA — superior for sentiment-intensive tasks</div>
-        <div class="eq bg-gray-900 text-white p-3 rounded-lg text-center mt-3 text-xs">
-          $$U_{C4}(\theta)=\prod_{i=1}^{q-1}\!\text{CNOT}_{i,i+1}\cdot\prod_{i=1}^{q}R_Z(\theta_i^z)R_Y(\theta_i^y)R_X(\theta_i^x)$$
+        <div class="eq bg-gray-900 text-white p-3 rounded-lg text-center mt-3 text-xs overflow-x-auto">
+          $$U_{"{C4}"}(\theta)=\prod_{"{i=1}"}^{"{q-1}"}\!\text{"{"CNOT{"}"}_{"{"i,i+1{"}"}\cdot\prod_{"{"i=1{"}"}^{"{q}"}R_Z(\theta_i^z)R_Y(\theta_i^y)R_X(\theta_i^x)$$
         </div>
       </div>
+
     </div>
   </div>
-  <figure class="fig">
-  <Picture slot="figure" src="../assets/circuits.pdf" alt="System architecture diagram" />
-  <figcaption><strong>Figure 2:</strong> Quantum circuit variants (QC1–QC4). (a) Entangling circuit with CNOT; (b) rotation-only, no entanglement; (c) layered RX/RY/RZ with depth L; (d) controlled operation circuit combining all three rotation axes with CNOT.</figcaption>
-</figure>
+
+  <figure class="fig mt-6">
+    <Picture slot="figure" src="../assets/circuits.pdf" alt="Quantum circuit variants" />
+    <figcaption>
+      <strong>Figure 2:</strong> Quantum circuit variants (QC1–QC4). (a) Entangling circuit with CNOT; (b) rotation-only, no entanglement; (c) layered RX/RY/RZ with depth L; (d) controlled operation circuit combining all three rotation axes with CNOT.
+    </figcaption>
+  </figure>
 </section>
+
+{/* ─── Results ─── */}
 <section class="sec" id="results">
   <div class="col">
-    <h2>Experiments & Results</h2>
+    <h2>Experiments &amp; Results</h2>
 
     <h3>Backbone comparison (QC1)</h3>
     <p>
       DeBERTa-v3-base consistently outperforms DistilBERT, with the largest gap on MPQA — a sentiment-rich dataset where
       disentangled attention's nuanced understanding provides the greatest advantage.
     </p>
-    <div class="tw">
-      <table>
-  <thead>
-    <tr>
-      <th>Dataset</th><th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th>
-      <th>Specificity</th><th>F1</th><th>AUC</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td rowspan="2" style="border-right:1px solid var(--bd)">Spam</td>
-      <td>DistilBERT</td>
-      <td>0.9659</td><td class="best text-blue-400 font-bold">0.9662</td><td>0.8125</td><td class="best text-blue-400 font-bold">0.9947</td><td>0.8827</td><td class="best text-blue-400 font-bold">0.9779</td>
-    </tr>
-    <tr>
-      <td>
-        <span style="color:white;font-weight:600">
-          De<span style="color:var(--ac);font-weight:700">B</span>ERTa-v3-base
-        </span>
-      </td>
-      <td class="best text-blue-400 font-bold">0.9713</td>
-      <td>0.9366</td>
-      <td class="best text-blue-400 font-bold">0.8526</td>
-      <td>0.9906</td>
-      <td class="best text-blue-400 font-bold">0.8926</td>
-      <td>0.9335</td>
-    </tr>
-    <tr>
-      <td rowspan="2" style="border-right:1px solid var(--bd)">MPQA</td>
-      <td>DistilBERT</td>
-      <td>0.8553</td><td>0.7238</td><td>0.7380</td><td>0.8979</td><td>0.7308</td><td>0.8906</td>
-    </tr>
-    <tr>
-      <td>
-        <span style="color:white;font-weight:600">
-          De<span style="color:var(--ac);font-weight:700">B</span>ERTa-v3-base
-        </span>
-      </td>
-      <td class="best text-blue-400 font-bold">0.8629</td>
-      <td class="best text-blue-400 font-bold">0.7568</td>
-      <td class="best text-blue-400 font-bold">0.7536</td>
-      <td class="best text-blue-400 font-bold">0.9055</td>
-      <td class="best text-blue-400 font-bold">0.7552</td>
-      <td class="best text-blue-400 font-bold">0.8953</td>
-    </tr>
-    <tr>
-      <td rowspan="2" style="border-right:1px solid var(--bd)">MR</td>
-      <td>DistilBERT</td>
-      <td>0.7698</td><td>0.7749</td><td>0.7596</td><td>0.7800</td><td>0.7672</td>
-      <td class="best text-blue-400 font-bold">0.8392</td>
-    </tr>
-    <tr>
-      <td>
-        <span style="color:white;font-weight:600">
-          De<span style="color:var(--ac);font-weight:700">B</span>ERTa-v3-base
-        </span>
-      </td>
-      <td class="best text-blue-400 font-bold">0.7731</td>
-      <td class="best text-blue-400 font-bold">0.7812</td>
-      <td class="best text-blue-400 font-bold">0.7547</td>
-      <td class="best text-blue-400 font-bold">0.7912</td>
-      <td class="best text-blue-400 font-bold">0.7678</td>
-      <td>0.8334</td>
-    </tr>
-  </tbody>
-</table>
+
+    <div class="overflow-x-auto w-full">
+      <table class="min-w-[640px] w-full text-sm text-gray-200">
+        <thead>
+          <tr>
+            <th>Dataset</th><th>Model</th><th>Accuracy</th><th>Precision</th><th>Recall</th>
+            <th>Specificity</th><th>F1</th><th>AUC</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="2" style="border-right:1px solid var(--bd)">Spam</td>
+            <td>DistilBERT</td>
+            <td>0.9659</td><td class="text-blue-400 font-bold">0.9662</td><td>0.8125</td>
+            <td class="text-blue-400 font-bold">0.9947</td><td>0.8827</td><td class="text-blue-400 font-bold">0.9779</td>
+          </tr>
+          <tr>
+            <td><span style="color:white;font-weight:600">De<span style="color:var(--ac);font-weight:700">B</span>ERTa-v3-base</span></td>
+            <td class="text-blue-400 font-bold">0.9713</td><td>0.9366</td><td class="text-blue-400 font-bold">0.8526</td>
+            <td>0.9906</td><td class="text-blue-400 font-bold">0.8926</td><td>0.9335</td>
+          </tr>
+          <tr>
+            <td rowspan="2" style="border-right:1px solid var(--bd)">MPQA</td>
+            <td>DistilBERT</td>
+            <td>0.8553</td><td>0.7238</td><td>0.7380</td><td>0.8979</td><td>0.7308</td><td>0.8906</td>
+          </tr>
+          <tr>
+            <td><span style="color:white;font-weight:600">De<span style="color:var(--ac);font-weight:700">B</span>ERTa-v3-base</span></td>
+            <td class="text-blue-400 font-bold">0.8629</td><td class="text-blue-400 font-bold">0.7568</td>
+            <td class="text-blue-400 font-bold">0.7536</td><td class="text-blue-400 font-bold">0.9055</td>
+            <td class="text-blue-400 font-bold">0.7552</td><td class="text-blue-400 font-bold">0.8953</td>
+          </tr>
+          <tr>
+            <td rowspan="2" style="border-right:1px solid var(--bd)">MR</td>
+            <td>DistilBERT</td>
+            <td>0.7698</td><td>0.7749</td><td>0.7596</td><td>0.7800</td><td>0.7672</td>
+            <td class="text-blue-400 font-bold">0.8392</td>
+          </tr>
+          <tr>
+            <td><span style="color:white;font-weight:600">De<span style="color:var(--ac);font-weight:700">B</span>ERTa-v3-base</span></td>
+            <td class="text-blue-400 font-bold">0.7731</td><td class="text-blue-400 font-bold">0.7812</td>
+            <td class="text-blue-400 font-bold">0.7547</td><td class="text-blue-400 font-bold">0.7912</td>
+            <td class="text-blue-400 font-bold">0.7678</td><td>0.8334</td>
+          </tr>
+        </tbody>
+      </table>
     </div>
-    <p class="tc">
-      <strong>Table 1:</strong> DistilBERT vs DeBERTa-v3-base under QC1. 
+    <p class="tc text-sm text-gray-400 mt-2">
+      <strong>Table 1:</strong> DistilBERT vs DeBERTa-v3-base under QC1.
       <span style="color:var(--ac);font-weight:700">Blue bold</span> = best per dataset per metric.
     </p>
+
     <h3>Circuit comparison (QC1–QC4, DeBERTa-v3-base)</h3>
     <p>
       QC1 leads on Spam and MR; QC4 excels on MPQA due to its controlled-operation structure better modeling fine-grained sentiment dependencies.
     </p>
-    <div class="tw">
-      <table>
+
+    <div class="overflow-x-auto w-full">
+      <table class="min-w-[640px] w-full text-sm text-gray-200">
         <thead>
           <tr>
             <th>Dataset</th><th>Circuit</th><th>Accuracy</th><th>Precision</th><th>Recall</th>
@@ -406,51 +412,94 @@ The natural language processing field requires sentiment analysis and text class
           </tr>
         </thead>
         <tbody>
-          <tr><td rowspan="4" style="border-right:1px solid var(--bd)">Spam</td>
-            <td class="best text-blue-400 font-bold">QC1</td><td class="best text-blue-400 font-bold">0.9666</td><td class="best text-blue-400 font-bold">0.9664</td><td class="best text-blue-400 font-bold">0.9668</td><td class="best text-blue-400 font-bold">0.9668</td><td class="best text-blue-400 font-bold">0.9665</td><td class="best text-blue-400 font-bold">0.9886</td></tr>
+          <tr>
+            <td rowspan="4" style="border-right:1px solid var(--bd)">Spam</td>
+            <td class="text-blue-400 font-bold">QC1</td>
+            <td class="text-blue-400 font-bold">0.9666</td><td class="text-blue-400 font-bold">0.9664</td>
+            <td class="text-blue-400 font-bold">0.9668</td><td class="text-blue-400 font-bold">0.9668</td>
+            <td class="text-blue-400 font-bold">0.9665</td><td class="text-blue-400 font-bold">0.9886</td>
+          </tr>
           <tr><td>QC2</td><td>0.9632</td><td>0.9642</td><td>0.9625</td><td>0.9625</td><td>0.9631</td><td>0.9873</td></tr>
           <tr><td>QC3</td><td>0.9532</td><td>0.9530</td><td>0.9536</td><td>0.9536</td><td>0.9532</td><td>0.9863</td></tr>
           <tr><td>QC4</td><td>0.9231</td><td>0.9354</td><td>0.9201</td><td>0.9201</td><td>0.9221</td><td>0.9446</td></tr>
-          <tr><td rowspan="4" style="border-right:1px solid var(--bd)">MPQA</td>
-            <td>QC1</td><td>0.8443</td><td>0.8447</td><td>0.8442</td><td>0.8442</td><td>0.8442</td><td class="best text-blue-400 font-bold">0.8924</td></tr>
+
+          <tr>
+            <td rowspan="4" style="border-right:1px solid var(--bd)">MPQA</td>
+            <td>QC1</td><td>0.8443</td><td>0.8447</td><td>0.8442</td><td>0.8442</td><td>0.8442</td>
+            <td class="text-blue-400 font-bold">0.8924</td>
+          </tr>
           <tr><td>QC2</td><td>0.5546</td><td>0.5612</td><td>0.5557</td><td>0.5557</td><td>0.5449</td><td>0.7097</td></tr>
           <tr><td>QC3</td><td>0.5881</td><td>0.6347</td><td>0.5858</td><td>0.5858</td><td>0.5459</td><td>0.6467</td></tr>
-          <tr><td class="best text-blue-400 font-bold">QC4</td><td class="best text-blue-400 font-bold">0.8605</td><td class="best text-blue-400 font-bold">0.8613</td><td class="best text-blue-400 font-bold">0.8607</td><td class="best text-blue-400 font-bold">0.8607</td><td class="best text-blue-400 font-bold">0.8605</td><td>0.8739</td></tr>
-          <tr><td rowspan="4" style="border-right:1px solid var(--bd)">MR</td>
-            <td class="best text-blue-400 font-bold">QC1</td><td class="best text-blue-400 font-bold">0.8594</td><td class="best text-blue-400 font-bold">0.8523</td><td class="best text-blue-400 font-bold">0.8589</td><td>0.8597</td><td class="best text-blue-400 font-bold">0.8556</td><td class="best text-blue-400 font-bold">0.9271</td></tr>
+          <tr>
+            <td class="text-blue-400 font-bold">QC4</td>
+            <td class="text-blue-400 font-bold">0.8605</td><td class="text-blue-400 font-bold">0.8613</td>
+            <td class="text-blue-400 font-bold">0.8607</td><td class="text-blue-400 font-bold">0.8607</td>
+            <td class="text-blue-400 font-bold">0.8605</td><td>0.8739</td>
+          </tr>
+
+          <tr>
+            <td rowspan="4" style="border-right:1px solid var(--bd)">MR</td>
+            <td class="text-blue-400 font-bold">QC1</td>
+            <td class="text-blue-400 font-bold">0.8594</td><td class="text-blue-400 font-bold">0.8523</td>
+            <td class="text-blue-400 font-bold">0.8589</td><td>0.8597</td>
+            <td class="text-blue-400 font-bold">0.8556</td><td class="text-blue-400 font-bold">0.9271</td>
+          </tr>
           <tr><td>QC2</td><td>0.8486</td><td>0.8483</td><td>0.8377</td><td>0.8588</td><td>0.8430</td><td>0.9177</td></tr>
           <tr><td>QC3</td><td>0.8514</td><td>0.8485</td><td>0.8444</td><td>0.8579</td><td>0.8465</td><td>0.9255</td></tr>
-          <tr><td>QC4</td><td>0.8444</td><td>0.8484</td><td>0.8271</td><td class="best text-blue-400 font-bold">0.8607</td><td>0.8376</td><td>0.8972</td></tr>
+          <tr>
+            <td>QC4</td><td>0.8444</td><td>0.8484</td><td>0.8271</td>
+            <td class="text-blue-400 font-bold">0.8607</td><td>0.8376</td><td>0.8972</td>
+          </tr>
         </tbody>
       </table>
     </div>
-    <p class="tc"><strong>Table 2:</strong> QDeBERTa-BiLSTM under all four circuit configurations across all datasets.</p>
+    <p class="tc text-sm text-gray-400 mt-2">
+      <strong>Table 2:</strong> QDeBERTa-BiLSTM under all four circuit configurations across all datasets.
+    </p>
+
     ### Comparison with prior quantum models
-    <div class="tw">
-      <table>
+
+    <div class="overflow-x-auto w-full">
+      <table class="min-w-[400px] w-full text-sm text-gray-200">
         <thead><tr><th>Method</th><th>Spam</th><th>MR</th><th>MPQA</th></tr></thead>
         <tbody>
           <tr><td>Hybrid Fine-Tuned BERT (Masum et al., 2025)</td><td>~95%</td><td>—</td><td>—</td></tr>
-          <tr><td>Complex Quantum Kernel Self-Attention (Chen & Lou, 2025)</td><td>~93%</td><td>~80%</td><td>~80%</td></tr>
+          <tr><td>Complex Quantum Kernel Self-Attention (Chen &amp; Lou, 2025)</td><td>~93%</td><td>~80%</td><td>~80%</td></tr>
           <tr><td>Quantum-Inspired DNN (Shi et al., 2021)</td><td>—</td><td>~79%</td><td>~86%</td></tr>
-          <tr><td style="color:var(--ac);font-weight:600">QDeBERTa-BiLSTM (Ours)</td><td class="qt font-semibold text-blue-400">~97%</td><td class="qt font-semibold text-blue-400">~86%</td><td class="qt font-semibold text-blue-400">~86%</td></tr>
+          <tr>
+            <td style="color:var(--ac);font-weight:600">QDeBERTa-BiLSTM (Ours)</td>
+            <td class="font-semibold text-blue-400">~97%</td>
+            <td class="font-semibold text-blue-400">~86%</td>
+            <td class="font-semibold text-blue-400">~86%</td>
+          </tr>
         </tbody>
       </table>
     </div>
-    <p class="tc"><strong>Table 4:</strong> Accuracy comparison with existing hybrid quantum-classical models.</p>
-  </div>
+    <p class="tc text-sm text-gray-400 mt-2">
+      <strong>Table 4:</strong> Accuracy comparison with existing hybrid quantum-classical models.
+    </p>
+
     <h3>Training dynamics — loss curves (QC1–QC4, 10 epochs)</h3>
-    <p>QC1 converges smoothest across all datasets (~0.30 loss on MR, ~0.45 on Spam). QC4 takes longer on MPQA but reaches better final performance. QC2 and QC3 show instability on MPQA due to weaker entanglement capacity.</p>
-    <figure class="fig">
+    <p>
+      QC1 converges smoothest across all datasets (~0.30 loss on MR, ~0.45 on Spam). QC4 takes longer on MPQA but reaches
+      better final performance. QC2 and QC3 show instability on MPQA due to weaker entanglement capacity.
+    </p>
+
+    <figure class="fig mt-4">
       <Picture slot="figure" src="../assets/plt1.pdf" alt="Training loss curves for QC1–QC4 across datasets" />
       <figcaption>
-        <strong>Figure 3:</strong> Training loss curves over 10 epochs for QC1–QC4 on all three benchmark datasets (Spam, MR, MPQA). QC1 converges smoothest across all datasets (~0.30 loss on MR, ~0.45 on Spam). QC4 takes longer on MPQA but reaches better final performance. QC2 and QC3 show instability on MPQA due to weaker entanglement capacity.
+        <strong>Figure 3:</strong> Training loss curves over 10 epochs for QC1–QC4 on all three benchmark datasets (Spam, MR, MPQA).
+        QC1 converges smoothest across all datasets (~0.30 loss on MR, ~0.45 on Spam). QC4 takes longer on MPQA but reaches
+        better final performance. QC2 and QC3 show instability on MPQA due to weaker entanglement capacity.
       </figcaption>
     </figure>
+  </div>
 </section>
-<div class="tw">
-  <table class="divide-x divide-gray-800 w-full text-sm text-gray-200">
-    <thead class=" text-white">
+
+{/* ─── Ablation / Baseline Table ─── */}
+<div class="overflow-x-auto w-full mt-6">
+  <table class="min-w-[640px] divide-x divide-gray-800 w-full text-sm text-gray-200">
+    <thead class="text-white">
       <tr>
         <th>Dataset</th>
         <th>Metric</th>
@@ -467,12 +516,14 @@ The natural language processing field requires sentiment analysis and text class
       <tr><td>Specificity</td><td>0.6733</td><td>0.9067</td><td>0.9400</td><td class="text-blue-400 font-bold">0.9668</td></tr>
       <tr><td>F1-score</td><td>0.7800</td><td>0.9164</td><td>0.9231</td><td class="text-blue-400 font-bold">0.9665</td></tr>
       <tr><td>AUC</td><td>0.8800</td><td>0.9708</td><td>0.9765</td><td class="text-blue-400 font-bold">0.9886</td></tr>
+
       <tr><td rowspan="6" class="border-r border-gray-800">MPQA</td><td>Accuracy</td><td>0.7276</td><td>0.8303</td><td>0.8270</td><td class="text-blue-400 font-bold">0.8605</td></tr>
       <tr><td>Precision</td><td>0.7277</td><td>0.8312</td><td>0.8273</td><td class="text-blue-400 font-bold">0.8613</td></tr>
       <tr><td>Recall</td><td>0.7276</td><td>0.8303</td><td>0.8270</td><td class="text-blue-400 font-bold">0.8607</td></tr>
       <tr><td>Specificity</td><td>0.7387</td><td>0.8035</td><td>0.8140</td><td class="text-blue-400 font-bold">0.8607</td></tr>
       <tr><td>F1-score</td><td>0.7275</td><td>0.8302</td><td>0.8270</td><td class="text-blue-400 font-bold">0.8605</td></tr>
       <tr><td>AUC</td><td>0.8047</td><td>0.8910</td><td class="text-blue-400 font-bold">0.8943</td><td>0.8739</td></tr>
+
       <tr><td rowspan="6" class="border-r border-gray-800">MR</td><td>Accuracy</td><td>0.7121</td><td>0.8322</td><td>0.8044</td><td class="text-blue-400 font-bold">0.8594</td></tr>
       <tr><td>Precision</td><td>0.7121</td><td>0.7702</td><td>0.8047</td><td class="text-blue-400 font-bold">0.8523</td></tr>
       <tr><td>Recall</td><td>0.7121</td><td class="text-blue-400 font-bold">0.9465</td><td>0.8044</td><td>0.8589</td></tr>
@@ -482,14 +533,21 @@ The natural language processing field requires sentiment analysis and text class
     </tbody>
   </table>
 </div>
-<p class="tc"><strong>Table 3:</strong> Comparison of baseline models and the proposed QDeBERTa-BiLSTM across Spam, MPQA, and MR datasets.</p>
+<p class="tc text-sm text-gray-400 mt-2">
+  <strong>Table 3:</strong> Comparison of baseline models and the proposed QDeBERTa-BiLSTM across Spam, MPQA, and MR datasets.
+</p>
+
+{/* ─── Experimental Setup ─── */}
 <section class="sec" id="setup">
   <div class="col">
     <h2>Experimental Setup</h2>
-    <div class="grid grid-cols-2 gap-6">
-      <div class="cfb">
-        <table class=" w-full text-sm text-gray-200">
-          <thead class=" text-white">
+
+    {/* 1 col on mobile, 2 col on md+ */}
+    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+
+      <div class="cfb overflow-x-auto">
+        <table class="min-w-[260px] w-full text-sm text-gray-200">
+          <thead class="text-white">
             <tr><th>Quantum Settings</th><th>Value</th></tr>
           </thead>
           <tbody>
@@ -504,29 +562,31 @@ The natural language processing field requires sentiment analysis and text class
           </tbody>
         </table>
       </div>
-      <div class="cfb">
-        <table class="w-full text-sm text-gray-200">
-          <thead class=" text-white">
+
+      <div class="cfb overflow-x-auto">
+        <table class="min-w-[260px] w-full text-sm text-gray-200">
+          <thead class="text-white">
             <tr><th>Training Settings</th><th>Value</th></tr>
           </thead>
           <tbody>
             <tr><td>Epochs</td><td>10</td></tr>
             <tr><td>Batch Size</td><td>32</td></tr>
             <tr><td>Max Seq. Length</td><td>128 tokens</td></tr>
-            <tr><td>Learning Rate</td><td><span>1 × 10⁻⁵</span></td></tr>
-            <tr><td>Backbone</td>
-                <td><span class="text-white font-semibold">De<span>B</span>ERTa-v3-base</span></td></tr>
+            <tr><td>Learning Rate</td><td>1 × 10⁻⁵</td></tr>
+            <tr><td>Backbone</td><td><span class="text-white font-semibold">De<span>B</span>ERTa-v3-base</span></td></tr>
             <tr><td>Loss</td><td>Cross-entropy</td></tr>
             <tr><td>Train / Val Split</td><td>80 / 20</td></tr>
             <tr><td>Optimizer</td><td>AdamW</td></tr>
           </tbody>
         </table>
       </div>
+
     </div>
+
     <h3 class="mt-8">Datasets</h3>
-    <div class="tw">
-      <table class=" divide-x divide-gray-800 w-full text-sm text-gray-200">
-        <thead class=" text-white">
+    <div class="overflow-x-auto w-full">
+      <table class="min-w-[480px] divide-x divide-gray-800 w-full text-sm text-gray-200">
+        <thead class="text-white">
           <tr>
             <th>Dataset</th><th>Domain</th><th>Size</th><th>Labels</th><th>Source</th>
           </tr>
@@ -534,67 +594,75 @@ The natural language processing field requires sentiment analysis and text class
         <tbody>
           <tr>
             <td><span class="tag tb">Spam</span></td>
-            <td>SMS messages</td>
-            <td>5,574</td>
-            <td>Ham / Spam</td>
-            <td>Masum et al. (2025)</td>
+            <td>SMS messages</td><td>5,574</td><td>Ham / Spam</td><td>Masum et al. (2025)</td>
           </tr>
           <tr>
             <td><span class="tag tt">MR</span></td>
-            <td>Movie reviews</td>
-            <td>~10,662</td>
-            <td>Positive / Negative</td>
-            <td>Chen &amp; Lou (2025)</td>
+            <td>Movie reviews</td><td>~10,662</td><td>Positive / Negative</td><td>Chen &amp; Lou (2025)</td>
           </tr>
           <tr>
             <td><span class="tag ta">MPQA</span></td>
-            <td>Opinion sentences</td>
-            <td>~10,600</td>
-            <td>Subjectivity / Polarity</td>
-            <td>Chen &amp; Lou (2025)</td>
+            <td>Opinion sentences</td><td>~10,600</td><td>Subjectivity / Polarity</td><td>Chen &amp; Lou (2025)</td>
           </tr>
         </tbody>
       </table>
     </div>
     <p class="tc mt-2 text-sm text-gray-400">
-      <strong>Table 5:</strong> Benchmark datasets used for training and evaluation. 
+      <strong>Table 5:</strong> Benchmark datasets used for training and evaluation.
       All label distributions were balanced during preprocessing; 80/20 train/validation split with max sequence length 128.
     </p>
   </div>
 </section>
 
+{/* ─── Conclusion ─── */}
 <section class="sec">
   <div class="col">
     <h2>Conclusion</h2>
-    <p>QDeBERTa-BiLSTM demonstrates that integrating variational quantum circuits into a classical transformer-LSTM pipeline yields meaningful gains for text classification. The model achieves <strong>97%</strong> on Spam and <strong>86%</strong> on both MR and MPQA — surpassing all prior hybrid quantum-classical baselines.</p>
-    <p>The circuit design study reveals a clear tradeoff: entangling circuits (QC1) offer stable, consistent performance across all tasks, while controlled-operation circuits (QC4) excel on nuanced sentiment classification (MPQA). Current limitations include reliance on PennyLane simulators, a small qubit count ($q = 2$), and NISQ-era hardware constraints. Future work will target real quantum hardware, more expressive circuit designs, and extended multilingual and domain-specific benchmarks.</p>
+    <p>
+      QDeBERTa-BiLSTM demonstrates that integrating variational quantum circuits into a classical transformer-LSTM pipeline
+      yields meaningful gains for text classification. The model achieves <strong>97%</strong> on Spam and <strong>86%</strong>
+      on both MR and MPQA — surpassing all prior hybrid quantum-classical baselines.
+    </p>
+    <p>
+      The circuit design study reveals a clear tradeoff: entangling circuits (QC1) offer stable, consistent performance
+      across all tasks, while controlled-operation circuits (QC4) excel on nuanced sentiment classification (MPQA).
+      Current limitations include reliance on PennyLane simulators, a small qubit count ($q = 2$), and NISQ-era hardware
+      constraints. Future work will target real quantum hardware, more expressive circuit designs, and extended multilingual
+      and domain-specific benchmarks.
+    </p>
   </div>
 </section>
 
+{/* ─── Citation ─── */}
 ## Citation
-<p>If you find this work useful in your research, please cite:</p>
+
+<p id="citation">If you find this work useful in your research, please cite:</p>
+
 ```bibtex
 @inproceedings{shirin2026qdeberta,
-  author    = "{Najnin Sultana Shirin and Author Two and Author Three and Author Four}",
-  title     = "QDeBERTa-BiLSTM: A Hybrid Quantum Classical Framework for Enhanced Text Classification",
-  booktitle = "Conference on Language Modeling (COLM)",
-  year      = "2026",
-  note      = "Under double-blind review"
+  author    = {Najnin Sultana Shirin and Author Two and Author Three and Author Four},
+  title     = {QDeBERTa-BiLSTM: A Hybrid Quantum Classical Framework for Enhanced Text Classification},
+  booktitle = {Conference on Language Modeling (COLM)},
+  year      = {2026},
+  note      = {Under double-blind review}
 }
 ```
-## Bibliography
-<div class="bibtext">
-      <p>1. Li, Y. et al. (2025). QMLSC: A quantum multimodal learning model for sentiment classification. <em>Information Fusion</em>, 120, 103049.</p>
-      <p>2. Yang, C.-H. H. et al. (2022). When BERT meets quantum temporal convolution learning for text classification. <em>ICASSP 2022</em>, pp. 8602–8606.</p>
-      <p>3. Kong, X. et al. (2025). Quantum-enhanced LLM efficient fine tuning. <em>arXiv:2503.12790</em>.</p>
-      <p>4. Kim, S. H. et al. (2025). Quantum large language model fine-tuning. <em>IEEE QCE 2025</em>, vol. 1, pp. 01–12.</p>
-      <p>5. Masum, A. K. M. et al. (2025). A hybrid classical-quantum fine-tuned BERT for text classification. <em>AAAI Symposium Series</em>, 7, pp. 374–380.</p>
-      <p>6. Chen, X. &amp; Lou, X. (2025). Enhancing text classification through quantum transfer learning. <em>IEEE Access</em>.</p>
-      <p>7. Zeguendry, A. et al. (2024). Quantum-enhanced KNN for text classification. <em>Advanced Quantum Technologies</em>, 7(11), 2400122.</p>
-      <p>8. Shi, J. et al. (2021). Two end-to-end quantum-inspired deep neural networks for text classification. <em>IEEE TKDE</em>, 35(4), 4335–4345.</p>
-      <p>9. Ardeshir-Larijani, E. &amp; Nasiri Fatmehsari, M. M. (2024). Hybrid classical-quantum transfer learning for text classification. <em>Quantum Machine Intelligence</em>, 6(1), 19.</p>
-    </div>
 
-    <div style="text-align:center;margin-top:2.5rem">
-      <a class="backtop" href="#top">↑ Back to top</a>
-    </div>
+{/* ─── Bibliography ─── */}
+## Bibliography
+
+<div class="bibtext text-sm text-gray-300 space-y-2">
+  <p>1. Li, Y. et al. (2025). QMLSC: A quantum multimodal learning model for sentiment classification. <em>Information Fusion</em>, 120, 103049.</p>
+  <p>2. Yang, C.-H. H. et al. (2022). When BERT meets quantum temporal convolution learning for text classification. <em>ICASSP 2022</em>, pp. 8602–8606.</p>
+  <p>3. Kong, X. et al. (2025). Quantum-enhanced LLM efficient fine tuning. <em>arXiv:2503.12790</em>.</p>
+  <p>4. Kim, S. H. et al. (2025). Quantum large language model fine-tuning. <em>IEEE QCE 2025</em>, vol. 1, pp. 01–12.</p>
+  <p>5. Masum, A. K. M. et al. (2025). A hybrid classical-quantum fine-tuned BERT for text classification. <em>AAAI Symposium Series</em>, 7, pp. 374–380.</p>
+  <p>6. Chen, X. &amp; Lou, X. (2025). Enhancing text classification through quantum transfer learning. <em>IEEE Access</em>.</p>
+  <p>7. Zeguendry, A. et al. (2024). Quantum-enhanced KNN for text classification. <em>Advanced Quantum Technologies</em>, 7(11), 2400122.</p>
+  <p>8. Shi, J. et al. (2021). Two end-to-end quantum-inspired deep neural networks for text classification. <em>IEEE TKDE</em>, 35(4), 4335–4345.</p>
+  <p>9. Ardeshir-Larijani, E. &amp; Nasiri Fatmehsari, M. M. (2024). Hybrid classical-quantum transfer learning for text classification. <em>Quantum Machine Intelligence</em>, 6(1), 19.</p>
+</div>
+
+<div style="text-align:center;margin-top:2.5rem">
+  <a class="backtop" href="#top">↑ Back to top</a>
+</div>
