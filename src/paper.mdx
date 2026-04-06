@@ -457,46 +457,11 @@ The natural language processing field requires sentiment analysis and text class
       <strong>Table 2:</strong> QDeBERTa-BiLSTM under all four circuit configurations across all datasets.
     </p>
 
-    ### Comparison with prior quantum models
-
-    <div class="overflow-x-auto w-full">
-      <table class="min-w-[400px] w-full text-sm">
-        <thead><tr><th>Method</th><th>Spam</th><th>MR</th><th>MPQA</th></tr></thead>
-        <tbody>
-          <tr><td>Hybrid Fine-Tuned BERT (Masum et al., 2025)</td><td>~95%</td><td>—</td><td>—</td></tr>
-          <tr><td>Complex Quantum Kernel Self-Attention (Chen &amp; Lou, 2025)</td><td>~93%</td><td>~80%</td><td>~80%</td></tr>
-          <tr><td>Quantum-Inspired DNN (Shi et al., 2021)</td><td>—</td><td>~79%</td><td>~86%</td></tr>
-          <tr>
-            <td style="color:var(--ac);font-weight:600">QDeBERTa-BiLSTM (Ours)</td>
-            <td class="font-semibold text-blue-400">~97%</td>
-            <td class="font-semibold text-blue-400">~86%</td>
-            <td class="font-semibold text-blue-400">~86%</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-    <p class="tc text-sm mt-2">
-      <strong>Table 4:</strong> Accuracy comparison with existing hybrid quantum-classical models.
-    </p>
-
-    <h3>Training dynamics — loss curves (QC1–QC4, 10 epochs)</h3>
+    ### Ablation &amp; Baseline Comparison
     <p>
-      QC1 converges smoothest across all datasets (~0.30 loss on MR, ~0.45 on Spam). QC4 takes longer on MPQA but reaches
-      better final performance. QC2 and QC3 show instability on MPQA due to weaker entanglement capacity.
+      The fully-featured QDeBERTa-BiLSTM-QC1 substantially outperforms both the classical BiLSTM baseline and intermediate ablations, confirming the value of each component in the hybrid architecture.
     </p>
-
-    <figure class="fig mt-4">
-      <Picture slot="figure" src="../assets/plt1.pdf" alt="Training loss curves for QC1–QC4 across datasets" />
-      <figcaption>
-        <strong>Figure 3:</strong> Training loss curves over 10 epochs for QC1–QC4 on all three benchmark datasets (Spam, MR, MPQA).
-        QC1 converges smoothest across all datasets (~0.30 loss on MR, ~0.45 on Spam). QC4 takes longer on MPQA but reaches
-        better final performance. QC2 and QC3 show instability on MPQA due to weaker entanglement capacity.
-      </figcaption>
-    </figure>
-  </div>
-</section>
-
-{/* ─── Ablation / Baseline Table ─── */}
+    {/* ─── Ablation / Baseline Table ─── */}
 <div class="overflow-x-auto w-full mt-6">
   <table class="min-w-[640px] divide-x divide-gray-800 w-full text-sm">
     <thead class="text-white">
@@ -536,6 +501,48 @@ The natural language processing field requires sentiment analysis and text class
 <p class="tc text-sm mt-2">
   <strong>Table 3:</strong> Comparison of baseline models and the proposed QDeBERTa-BiLSTM across Spam, MPQA, and MR datasets.
 </p>
+
+    ### Comparison with prior quantum models
+    <p>
+      QDeBERTa-BiLSTM achieves competitive or superior accuracy compared to recent hybrid quantum-classical and quantum-inspired text classification methods across all three benchmarks.
+    </p>
+
+    <div class="overflow-x-auto w-full">
+      <table class="min-w-[400px] w-full text-sm">
+        <thead><tr><th>Method</th><th>Spam</th><th>MR</th><th>MPQA</th></tr></thead>
+        <tbody>
+          <tr><td>Hybrid Fine-Tuned BERT (Masum et al., 2025)</td><td>~95%</td><td>—</td><td>—</td></tr>
+          <tr><td>Complex Quantum Kernel Self-Attention (Chen &amp; Lou, 2025)</td><td>~93%</td><td>~80%</td><td>~80%</td></tr>
+          <tr><td>Quantum-Inspired DNN (Shi et al., 2021)</td><td>—</td><td>~79%</td><td>~86%</td></tr>
+          <tr>
+            <td style="color:var(--ac);font-weight:600">QDeBERTa-BiLSTM (Ours)</td>
+            <td class="font-semibold text-blue-400">~97%</td>
+            <td class="font-semibold text-blue-400">~86%</td>
+            <td class="font-semibold text-blue-400">~86%</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <p class="tc text-sm mt-2">
+      <strong>Table 4:</strong> Accuracy comparison with existing hybrid quantum-classical models.
+    </p>
+
+    <h3>Training dynamics — loss curves (QC1–QC4, 10 epochs)</h3>
+    <p>
+      QC1 converges smoothest across all datasets (~0.30 loss on MR, ~0.45 on Spam). QC4 takes longer on MPQA but reaches
+      better final performance. QC2 and QC3 show instability on MPQA due to weaker entanglement capacity.
+    </p>
+
+    <figure class="fig mt-4">
+      <Picture slot="figure" src="../assets/plt1.pdf" alt="Training loss curves for QC1–QC4 across datasets" />
+      <figcaption>
+        <strong>Figure 3:</strong> Training loss curves over 10 epochs for QC1–QC4 on all three benchmark datasets (Spam, MR, MPQA).
+        QC1 converges smoothest across all datasets (~0.30 loss on MR, ~0.45 on Spam). QC4 takes longer on MPQA but reaches
+        better final performance. QC2 and QC3 show instability on MPQA due to weaker entanglement capacity.
+      </figcaption>
+    </figure>
+  </div>
+</section>
 
 {/* ─── Experimental Setup ─── */}
 <section class="sec" id="setup">
