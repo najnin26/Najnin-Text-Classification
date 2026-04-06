@@ -548,6 +548,10 @@ The natural language processing field requires sentiment analysis and text class
 <section class="sec" id="setup">
   <div class="col">
     <h2>Experimental Setup</h2>
+    <p>
+      All experiments follow a consistent hyperparameter configuration optimizing the quantum-classical hybrid architecture.
+      We detail the quantum circuit parameters, training settings, and datasets used across all reported benchmarks.
+    </p>
 
     {/* 1 col on mobile, 2 col on md+ */}
     <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -589,6 +593,9 @@ The natural language processing field requires sentiment analysis and text class
       </div>
 
     </div>
+    <p class="tc text-sm mt-2">
+      <strong>Table 5:</strong> Quantum circuit parameters (left) and classical training configuration (right).
+    </p>
 
     <h3 class="mt-8">Datasets</h3>
     <div class="overflow-x-auto w-full">
@@ -615,7 +622,7 @@ The natural language processing field requires sentiment analysis and text class
       </table>
     </div>
     <p class="tc mt-2 text-sm">
-      <strong>Table 5:</strong> Benchmark datasets used for training and evaluation.
+      <strong>Table 6:</strong> Benchmark datasets used for training and evaluation.
       All label distributions were balanced during preprocessing; 80/20 train/validation split with max sequence length 128.
     </p>
   </div>
